@@ -9,7 +9,7 @@
     <!-- plugin css for this page -->
 
     <link href="{{ asset('vendors/mdi/css/materialdesignicons.min.css') }}" rel="stylesheet"> 
-    <link href="{{ asset('vendors/aos/dist/aos.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendors/aos/dist/aos.css/aos.css') }}" rel="stylesheet">
     <link href="{{ asset('vendors/owl.carousel/dist/assets/owl.carousel.min.css') }}" rel="stylesheet">
     <link href="{{ asset('vendors/owl.carousel/dist/assets/owl.theme.default.min.css') }}" rel="stylesheet">
     
@@ -33,9 +33,8 @@
                   <li>30°C,London</li>
                 </ul>
                 <div>
-                  <a class="navbar-brand" href="#"
-                    ><img src="assets/images/logo.svg" alt=""
-                  /></a>
+                  <a class="navbar-brand" href="#"><img src="{{ asset('images/logo.svg') }}" alt="" />
+                  </a>
                 </div>
                 <div class="d-flex">
                   <ul class="navbar-right">
@@ -100,34 +99,34 @@
                       </button>
                     </li>
                     <li class="nav-item active">
-                      <a class="nav-link active" href="index.html">Home</a>
+                      <a class="nav-link active" href="{{ url('/home')}}">Home</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="pages/world.html">World</a>
+                      <a class="nav-link" href="{{ url('/pages')}}">World</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="pages/author.html">Magazine</a>
+                      <a class="nav-link" href="{{ url('/pages')}}">Magazine</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="pages/news-post.html">Blog</a>
+                      <a class="nav-link" href="{{ url('/pages')}}">Blog</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="pages/business.html">Business</a>
+                      <a class="nav-link" href="{{ url('/pages')}}">Business</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="pages/sports.html">Sports</a>
+                      <a class="nav-link" href="{{ url('/pages')}}">Sports</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="pages/art.html">Art</a>
+                      <a class="nav-link" href="{{ url('/pages')}}">Art</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="pages/politics.html">Politics</a>
+                      <a class="nav-link" href="{{ url('/pages')}}">Politics</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="pages/real-estate.html">Real estate</a>
+                      <a class="nav-link" href="{{ url('/pages')}}">Real estate</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="pages/travel.html">Travel</a>
+                      <a class="nav-link" href="{{ url('/pages')}}">Travel</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="#"><i class="mdi mdi-magnify"></i></a>
@@ -744,23 +743,23 @@
               </div>
               <div class="col-sm-3 col-lg-3">
                 <ul class="footer-vertical-nav">
-                  <li class="menu-title"><a href="pages/news-post.html">News</a></li>
+                  <li class="menu-title"><a href="{{ url('/pages')}}">News</a></li>
                   <li><a href="index.html">Home</a></li>
-                  <li><a href="pages/world.html">World</a></li>
-                  <li><a href="pages/author.html">Magazine</a></li>
-                  <li><a href="pages/business.html">Business</a></li>
-                  <li><a href="pages/politics.html">Politics</a></li>
+                  <li><a href="{{ url('/pages')}}">World</a></li>
+                  <li><a href="{{ url('/pages')}}">Magazine</a></li>
+                  <li><a href="{{ url('/pages')}}">Business</a></li>
+                  <li><a href="{{ url('/pages')}}">Politics</a></li>
                 </ul>
               </div>
               <div class="col-sm-3 col-lg-3">
                 <ul class="footer-vertical-nav">
-                  <li class="menu-title"><a href="pages/world.html">World</a></li>
-                  <li><a href="pages/sports.html">Sports</a></li>
-                  <li><a href="pages/art.html">Art</a></li>
+                  <li class="menu-title"><a href="{{ url('/pages')}}">World</a></li>
+                  <li><a href="{{ url('/pages')}}">Sports</a></li>
+                  <li><a href="{{ url('/pages')}}">Art</a></li>
                   <li><a href="#">Magazine</a></li>
-                  <li><a href="pages/real-estate.html">Real estate</a></li>
-                  <li><a href="pages/travel.html">Travel</a></li>
-                  <li><a href="pages/author.html">Author</a></li>
+                  <li><a href="{{ url('/pages')}}">Real estate</a></li>
+                  <li><a href="{{ url('/pages')}}">Travel</a></li>
+                  <li><a href="{{ url('/pages')}}">Author</a></li>
                 </ul>
               </div>
               <div class="col-sm-3 col-lg-3">
@@ -768,7 +767,7 @@
                   <li class="menu-title"><a href="#">Features</a></li>
                   <li><a href="#">Photography</a></li>
                   <li><a href="#">Video</a></li>
-                  <li><a href="pages/news-post.html">Newsletters</a></li>
+                  <li><a href="{{ url('/pages')}}">Newsletters</a></li>
                   <li><a href="#">Live Events</a></li>
                   <li><a href="#">Stores</a></li>
                   <li><a href="#">Jobs</a></li>
@@ -781,8 +780,8 @@
                   <li><a href="#">FAQ</a></li>
                   <li><a href="#">User Agreement</a></li>
                   <li><a href="#">Privacy</a></li>
-                  <li><a href="pages/aboutus.html">About us</a></li>
-                  <li><a href="pages/contactus.html">Contact</a></li>
+                  <li><a href="{{ url('/pages')}}">About us</a></li>
+                  <li><a href="{{ url('/pages')}}">Contact</a></li>
                 </ul>
               </div>
             </div>
@@ -861,5 +860,6 @@
     <!-- Custom js for this page-->    
     <script src="{{ asset('js/demo.js') }}"> 
     <!-- End custom js for this page-->
+
   </body>
 </html>
