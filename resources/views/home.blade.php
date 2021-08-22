@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Lal Matir Sakhipur</title>
-
     <!-- End plugin css for this page -->    
     <link href="{{ asset('images/favicon.png') }}" rel="shortcut icon">
-    <!-- inject:css -->
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
+    <link href="/css/app.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
     <!-- endinject -->
   </head>
 
@@ -20,7 +20,7 @@
         <header id="header">
           <div class="container">
             <!-- partial:partials/_navbar.html -->
-            <nav class="navbar navbar-light bg-light">
+            <nav class="navbar navbar-expand-lg navbar-light">
               <div class="d-flex justify-content-between align-items-center navbar-top">
                 <ul class="navbar-left">
                   <li>{{ date('Y-m-d H:i:s') }}</li>
@@ -794,10 +794,7 @@
       </div>
     </div>
     <!-- inject:js -->        
-    <!-- Custom js for this page-->        
-    <script src="{{ asset('js/demo.js') }}">    
-    <script src="{{ asset('js/app.js') }}">       
+    <!-- Custom js for this page-->                    
+    <script src="/js/app.js"></script>    
     <!-- End custom js for this page-->
-
-  </body>
 </html>
