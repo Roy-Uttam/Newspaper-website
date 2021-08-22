@@ -6,13 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Lal Matir Sakhipur</title>
-    <!-- plugin css for this page -->
 
-    <link href="{{ asset('vendors/mdi/css/materialdesignicons.min.css') }}" rel="stylesheet"> 
-    <link href="{{ asset('vendors/aos/dist/aos.css/aos.css') }}" rel="stylesheet">
-    <link href="{{ asset('vendors/owl.carousel/dist/assets/owl.carousel.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('vendors/owl.carousel/dist/assets/owl.theme.default.min.css') }}" rel="stylesheet">
-    
     <!-- End plugin css for this page -->    
     <link href="{{ asset('images/favicon.png') }}" rel="shortcut icon">
     <!-- inject:css -->
@@ -26,7 +20,7 @@
         <header id="header">
           <div class="container">
             <!-- partial:partials/_navbar.html -->
-            <nav class="navbar navbar-expand-lg navbar-light">
+            <nav class="navbar navbar-light bg-light">
               <div class="d-flex justify-content-between align-items-center navbar-top">
                 <ul class="navbar-left">
                   <li>{{ date('Y-m-d H:i:s') }}</li>
@@ -192,91 +186,43 @@
           </div>
           <div class="row">
             <div class="col-lg-8">
-              <div class="owl-carousel owl-theme" id="main-banner-carousel">
-                <div class="item">
-                  <div class="carousel-content-wrapper mb-2">
-                    <div class="carousel-content">
-                      <h1 class="font-weight-bold">
-                        If you wanted to get rich, how would you do it?
-                      </h1>
-                      <h5 class="font-weight-normal  m-0">
-                        Lorem Ipsum has been the industry's standard
-                      </h5>
-                      <p class="text-color m-0 pt-2 d-flex align-items-center">
-                        <span class="fs-10 mr-1">2 hours ago</span>
-                        <i class="mdi mdi-bookmark-outline mr-3"></i>
-                        <span class="fs-10 mr-1">126</span>
-                        <i class="mdi mdi-comment-outline"></i>
-                      </p>
+              <div id="carouselNewsSlides" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">      
+                    <img class="d-block w-100" src="{{ asset('images/dashboard/banner.jpg') }}" alt="" />
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>News Title</h5>
+                      <p>news description</p>
                     </div>
-                    <div class="carousel-image">
-                      <img src="{{ asset('images/dashboard/banner.jpg') }}" alt="" />
+                  </div>
+                  <div class="carousel-item">
+                  <img class="d-block w-100" src="{{ asset('images/dashboard/banner.jpg') }}" alt="" />
+                  <div class="carousel-caption d-none d-md-block">
+                      <h5>News Title</h5>
+                      <p>news description</p>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                  <img class="d-block w-100" src="{{ asset('images/dashboard/banner.jpg') }}" alt="" />
+                  <div class="carousel-caption d-none d-md-block">
+                      <h5>News Title</h5>
+                      <p>news description</p>
                     </div>
                   </div>
                 </div>
-                <div class="item">
-                  <div class="carousel-content-wrapper mb-2">
-                    <div class="carousel-content">
-                      <h1 class="font-weight-bold">
-                        If you wanted to get rich, how would you do it?
-                      </h1>
-                      <h5 class="font-weight-normal  m-0">
-                        Lorem Ipsum has been the industry's standard
-                      </h5>
-                      <p class="text-color m-0 pt-2 d-flex align-items-center">
-                        <span class="fs-10 mr-1">2 hours ago</span>
-                        <i class="mdi mdi-bookmark-outline mr-3"></i>
-                        <span class="fs-10 mr-1">126</span>
-                        <i class="mdi mdi-comment-outline"></i>
-                      </p>
-                    </div>
-                    <div class="carousel-image">
-                      <img src="{{ asset('images/dashboard/banner_1.jpg') }}" alt="" />
-                    </div>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="carousel-content-wrapper mb-2">
-                    <div class="carousel-content">
-                      <h1 class="font-weight-bold">
-                        If you wanted to get rich, how would you do it?
-                      </h1>
-                      <h5 class="font-weight-normal  m-0">
-                        Lorem Ipsum has been the industry's standard
-                      </h5>
-                      <p class="text-color m-0 pt-2 d-flex align-items-center">
-                        <span class="fs-10 mr-1">2 hours ago</span>
-                        <i class="mdi mdi-bookmark-outline mr-3"></i>
-                        <span class="fs-10 mr-1">126</span>
-                        <i class="mdi mdi-comment-outline"></i>
-                      </p>
-                    </div>
-                    <div class="carousel-image">
-                      <img src="{{ asset('images/dashboard/banner_2.jpg') }}" alt="" />
-                    </div>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="carousel-content-wrapper mb-2">
-                    <div class="carousel-content">
-                      <h1 class="font-weight-bold">
-                        If you wanted to get rich, how would you do it?
-                      </h1>
-                      <h5 class="font-weight-normal  m-0">
-                        Lorem Ipsum has been the industry's standard
-                      </h5>
-                      <p class="text-color m-0 pt-2 d-flex align-items-center">
-                        <span class="fs-10 mr-1">2 hours ago</span>
-                        <i class="mdi mdi-bookmark-outline mr-3"></i>
-                        <span class="fs-10 mr-1">126</span>
-                        <i class="mdi mdi-comment-outline"></i>
-                      </p>
-                    </div>
-                    <div class="carousel-image">
-                      <img src="{{ asset('images/dashboard/banner_3.jpg') }}" alt="" />
-                    </div>
-                  </div>
-                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
               </div>
             </div>
             <div class="col-lg-4">
@@ -838,27 +784,19 @@
                     <li><a href="#">Sitemap</a></li>
                   </ul>
                   <p class="font-weight-medium">
-                    © {{ date('Y') }} <a href="https://www.bootstrapdash.com/" target="_blank" class="text-dark">@ EngineerState</a>, Inc. All Rights Reserved.
+                    © {{ date('Y') }} <a href="https://www.github.com/mazharulsabbir" target="_blank" class="text-dark">@ EngineerState</a>, Inc. All Rights Reserved.
                   </p>
                 </div>
               </div>
             </div>
           </div>
-        </footer>
-
-        <!-- partial -->
+        </footer>                      
       </div>
     </div>
-    <!-- inject:js -->    
-    
-    <script src="{{ asset('vendors/js/vendor.bundle.base.js') }}"> 
-
-    <!-- endinject -->
-    <!-- plugin js for this page -->    
-    <script src="{{ asset('vendors/owl.carousel/dist/owl.carousel.min.js') }}"> 
-    <!-- End plugin js for this page -->
-    <!-- Custom js for this page-->    
-    <script src="{{ asset('js/demo.js') }}"> 
+    <!-- inject:js -->        
+    <!-- Custom js for this page-->        
+    <script src="{{ asset('js/demo.js') }}">    
+    <script src="{{ asset('js/app.js') }}">       
     <!-- End custom js for this page-->
 
   </body>
