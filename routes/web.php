@@ -20,3 +20,13 @@ Route::get('/', function () {
 Route::get('/pages', function () {
     return view('pages');
 });
+
+Route::get('/account', function () {
+    return view('account');
+});
+
+Route::get('/admin_panel', function () {
+    return view('admin_panel');
+});
+
+Route::resource('/users', \App\Http\Controllers\UserController::class);

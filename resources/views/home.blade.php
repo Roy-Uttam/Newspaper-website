@@ -795,6 +795,8 @@
     </div>
     <!-- inject:js -->        
     <!-- Custom js for this page-->                    
-    <script src="/js/app.js"></script>    
+    <script type="text/javascript" src="/js/app.js"></script>    
     <!-- End custom js for this page-->
+
+</body>
 </html>
