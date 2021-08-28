@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+
+    
+
     /**
      * Display a listing of the resource.
      *
@@ -21,7 +24,9 @@ class UserController extends Controller
 
         if(isset($adminInfo) && $adminInfo!=null){
 
-            return redirect('/admin_panel');
+            $newscontroller = new NewsController();
+            return $newscontroller->addNews();
+            
         }else{
             return redirect()->back();
 
