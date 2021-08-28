@@ -93,7 +93,7 @@
                                 </button>
                               </li>
                               <li class="nav-item active">
-                                <a class="nav-link active" href="{{ url('/home')}}">Home</a>
+                                <a class="nav-link active" href="{{ url('/')}}">Home</a>
                               </li>
                               <li class="nav-item">
                                 <a class="nav-link" href="{{ url('/pages')}}">World</a>
