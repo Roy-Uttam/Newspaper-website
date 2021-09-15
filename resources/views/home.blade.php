@@ -117,13 +117,13 @@
                       <a class="nav-link" href="{{ url('/pages')}}">Politics</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="{{ url('/pages')}}">Real estate</a>
-                    </li>
-                    <li class="nav-item">
                       <a class="nav-link" href="{{ url('/pages')}}">Travel</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="{{ url('/account')}}">Admin</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{ url('/news') }}">All</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="#"><i class="mdi mdi-magnify"></i></a>
@@ -191,10 +191,10 @@
             <div class="col-lg-8">
               <div id="carouselNewsSlides" class="carousel slide" data-ride="carousel">
               <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+              </ol>
                 <div class="carousel-inner">
                   <div class="carousel-item active">      
                     <img class="d-block w-100" src="{{ asset('images/dashboard/banner.jpg') }}" alt="" />
@@ -343,11 +343,11 @@
 
                 <div class="col-lg-3 col-sm-6 grid-margin mb-5 mb-sm-2">
                   <div class="position-relative image-hover">
-                    <img
+                    <a href="{{ url('/news/'. $news->id) }}"><img
                       src="{{ asset(explode('|', $news->image)[0]) }}" height="300px"
                       class="img-fluid"
                       alt="world-news"
-                    />
+                    /></a>
                     <span class="thumb-title">TRAVEL</span>
                   </div>
                   <h5 class="font-weight-bold mt-3">

@@ -17,6 +17,10 @@ Route::get('/pages', function () {
     return view('pages');
 });
 
+Route::get('/news_details', function () {
+    return view('news_details');
+});
+
 Route::get('/account', function () {
     return view('account');
 })->name('accounts');
