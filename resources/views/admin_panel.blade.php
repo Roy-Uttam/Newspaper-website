@@ -163,7 +163,7 @@
                                     <div class="row">
                                         @foreach ($returnNews as $news)
                                             <div class="col-xs-4" style="padding: 15px;">
-                                                <img src="{{asset($news['image'])}}" height="200" width="200" alt="">
+                                              <img src="{{asset($news['image'])}}" height="200" width="200" alt="">
                                                 <h4>{{$news['name']}}</h4>
                                                 <p>{{$news['title']}}</p>
                                             </div> 
@@ -298,23 +298,6 @@
     <!-- Custom js for this page-->                    
     <script type="text/javascript" src="/js/app.js"></script>    
     <!-- End custom js for this page-->
-    <script>
-        var LoginForm = document.getElementById("LoginForm");
-        var RegForm = document.getElementById("RegForm");
-        var Indicator = document.getElementById("Indicator");
-        function register() {
-            RegForm.style.transform = "translatex(300px)";
-            LoginForm.style.transform = "translatex(300px)";
-            Indicator.style.transform = "translateX(0px)";
-
-        }
-        function login() {
-            RegForm.style.transform = "translatex(0px)";
-            LoginForm.style.transform = "translatex(0px)";
-            Indicator.style.transform = "translate(100px)";
-
-        }
-    </script>
 
 </body>
 </html>

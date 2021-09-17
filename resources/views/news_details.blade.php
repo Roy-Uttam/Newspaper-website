@@ -93,7 +93,7 @@
                                 </button>
                               </li>
                               <li class="nav-item active">
-                                <a class="nav-link active" href="{{ url('/home')}}">Home</a>
+                                <a class="nav-link active" href="{{ url('/')}}">Home</a>
                               </li>
                               <li class="nav-item">
                                 <a class="nav-link" href="{{ url('/pages')}}">World</a>
@@ -130,27 +130,33 @@
                         </div>
                     </nav>
 
-                    <div class="small-container">
-                        @if(session()->has('success'))
-                            <div class="alert alert-success">
-                                {{ session()->get('success') }}
-                            </div>
-                        @endif
-                        <div class="row row-2">
-                            <h2>All News</h2>
-                            
-                        </div>
+
+                    <div class="container">
                         <div class="row">
-                            @foreach($news as $news)
-                                <div class="col-4" style="padding: 10px;">
-                                    <a href="{{ url('/news/'. $news->id) }}"><img src="{{asset(explode('|', $news->image)[0])}}" height="300" width="300"></a>
-                                    <h4> {{$news->name}}</h4>
-                                   
-                                    <p>{{$news->title}}</p>
+                            <div class="col-8">
+                                <img src="{{ asset($images[0])}}" width="100%">
+                
+                            </div>
+                            <div class="col-8">
+                                <div id="error_message">
                                 </div>
-                            @endforeach
+                                <h1>{{$news->name}}</h1>
+
+                                <div>
+                                    <h2><h1>{{$news->title}}</h1></h2>
+                                </div>
+                                
+                          
+                                <h3>Product Details <i class="fa fa-indent"></i></h3>
+                                <br>
+                                
+                                <div>
+                                    <p>{{$news->news_details}}</p>
+                                </div>
+                                
+                            </div>
                         </div>
-                    </div>
+                    </div> 
 
                 </div>
 

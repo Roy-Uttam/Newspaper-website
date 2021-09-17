@@ -14,7 +14,8 @@ class NewsController extends Controller
      */
     public function index()
     {
-        //
+        $news= News::paginate(6);
+        return view('news', compact('news'));
     }
 
     /**
@@ -70,7 +71,9 @@ class NewsController extends Controller
      */
     public function show(News $news)
     {
-        //
+        $images= explode('|', $news->image);
+        // $related_products= Product::where('category_id', $product->category_id)->where('id', '!=', $product->id)->limit(3)->get();
+        return view('news_details', compact('news', 'images'));
     }
 
     /**
@@ -109,10 +112,10 @@ class NewsController extends Controller
 
     public function addNews(){
 
-        $newspaper= News::all();
+        $newspapers= News::all();
         $returnNews= array();
 
-        foreach ($newspaper as $news){
+        foreach ($newspapers as $news){
             $images= explode('|', $news->image);
 
             $returnNews[] = [
