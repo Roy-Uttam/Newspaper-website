@@ -123,9 +123,6 @@
                       <a class="nav-link" href="{{ url('/account')}}">Admin</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="{{ url('/news') }}">All</a>
-                    </li>
-                    <li class="nav-item">
                       <a class="nav-link" href="#"><i class="mdi mdi-magnify"></i></a>
                     </li>
                   </ul>

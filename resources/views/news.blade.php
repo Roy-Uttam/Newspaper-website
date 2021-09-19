@@ -94,37 +94,19 @@
                               </li>
                               <li class="nav-item active">
                                 <a class="nav-link active" href="{{ url('/home')}}">Home</a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/pages')}}">World</a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/pages')}}">Magazine</a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/pages')}}">Blog</a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/pages')}}">Business</a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/pages')}}">Sports</a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/pages')}}">Art</a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/pages')}}">Politics</a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/pages')}}">Real estate</a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/pages')}}">Travel</a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link" href="#"><i class="mdi mdi-magnify"></i></a>
-                              </li>
+                                
+                                <li class="nav-item">
+                                  <a class="nav-link" href="{{ url('/account')}}">Admin</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link" href="{{ url('/admin/news') }}">All</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link" href="{{ url('/admin/category') }}">Category</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link" href="#"><i class="mdi mdi-magnify"></i></a>
+                                </li>
                             </ul>
                           </div>
                         </div>
@@ -143,7 +125,7 @@
                         <div class="row">
                             @foreach($news as $news)
                                 <div class="col-4" style="padding: 10px;">
-                                    <a href="{{ url('/news/'. $news->id) }}"><img src="{{asset(explode('|', $news->image)[0])}}" height="300" width="300"></a>
+                                    <a href="{{ url('/admin/news/'. $news->id) }}"><img src="{{asset(explode('|', $news->image)[0])}}" height="300" width="300"></a>
                                     <h4> {{$news->name}}</h4>
                                    
                                     <p>{{$news->title}}</p>

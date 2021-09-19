@@ -25,10 +25,19 @@ Route::get('/account', function () {
     return view('account');
 })->name('accounts');
 
+
 Route::get('/', '\App\Http\Controllers\NewsController@worldNews');
 
 Route::resource('/users', \App\Http\Controllers\UserController::class);
 
-Route::resource('/news', \App\Http\Controllers\NewsController::class);
+Route::resource('/admin/news', \App\Http\Controllers\NewsController::class);
 
-Route::get('/admin_news', '\App\Http\Controllers\NewsController@addNews')->middleware('auth');
+Route::resource('/admin/category', \App\Http\Controllers\CategoryController::class);
+
+
+
+Route::middleware(['auth'])->group(function () {
+    
+    Route::get('/admin/admin_news', '\App\Http\Controllers\NewsController@addNews');
+    
+});

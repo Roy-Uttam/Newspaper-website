@@ -147,7 +147,7 @@
                                 </div>
                                 
                           
-                                <h3>Product Details <i class="fa fa-indent"></i></h3>
+                                <h3>Newst Details <i class="fa fa-indent"></i></h3>
                                 <br>
                                 
                                 <div>

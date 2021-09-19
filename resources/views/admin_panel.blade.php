@@ -96,31 +96,13 @@
                                 <a class="nav-link active" href="{{ url('/')}}">Home</a>
                               </li>
                               <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/pages')}}">World</a>
+                                <a class="nav-link" href="{{ url('/account')}}">Admin</a>
                               </li>
                               <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/pages')}}">Magazine</a>
+                                <a class="nav-link" href="{{ url('/admin/news') }}">All</a>
                               </li>
                               <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/pages')}}">Blog</a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/pages')}}">Business</a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/pages')}}">Sports</a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/pages')}}">Art</a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/pages')}}">Politics</a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/pages')}}">Real estate</a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/pages')}}">Travel</a>
+                                <a class="nav-link" href="{{ url('/admin/category') }}">Category</a>
                               </li>
                               <li class="nav-item">
                                 <a class="nav-link" href="#"><i class="mdi mdi-magnify"></i></a>
@@ -139,7 +121,7 @@
                         <div class="container">
                     
                             <div class="row">
-                                
+                              
                                 <div class="col-xs-4">
                                   <div class="form-container">
                                       <div class="form-btn">
@@ -147,7 +129,7 @@
                                           <hr style="border: none; background: #ff523b; height: 3px;">
                                       </div>
                   
-                                      <form id="LoginForm" method="POST" action="/news" enctype="multipart/form-data">
+                                      <form id="LoginForm" method="POST" action="/admin/news" enctype="multipart/form-data">
                                           @csrf
                                           <input type="text" name="name" placeholder="News Name">
                                           <input type="text" name="title" placeholder="title">
