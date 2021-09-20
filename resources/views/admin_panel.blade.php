@@ -139,26 +139,39 @@
                                       </form>
                                   </div>
                                 </div>
-
-
-                              <div class="col-xs-8">
-                                    <div class="row">
-                                        @foreach ($returnNews as $news)
-                                            <div class="col-xs-4" style="padding: 15px;">
-                                              <img src="{{asset($news['image'])}}" height="200" width="200" alt="">
-                                                <h4>{{$news['name']}}</h4>
-                                                <p>{{$news['title']}}</p>
-                                            </div> 
-                                        @endforeach
-                    
-                                    </div>
-                                </div>
-                    
-                                
                               </div>
-                    
-                    
                         </div>
+                    </div>
+
+                    <div class="row">
+                     
+                      @foreach ($returnNews as $news)
+
+                        <div class="col-sm-3">
+                          <div class="card">
+                            <div class="card-body">
+                              
+                              <img src="{{asset($news['image'])}}" height="200" width="200" alt="">
+                              <h5 class="card-title">{{$news['name']}}</h5>
+                              <p class="card-text">{{$news['title']}}</p>
+                              
+                              <tr>
+                                <td><a href="#" class="btn btn-primary">edit</a></td>
+                                <td><form method="POST" action=" {{ route('news.destroy', ['news' => $news['id']]) }} ">
+                                  @csrf
+                                  @method('DELETE')
+                                  <button onclick="return confirm('Are you sure?')" type="submit" class="btn btn-danger btn-sm"> 
+                                      delete
+                                  </button>	
+                                </form></td>
+                              </tr>
+
+                            </div>
+                          </div>
+                        </div>
+
+                      @endforeach
+                      
                     </div>
 
                 </div>

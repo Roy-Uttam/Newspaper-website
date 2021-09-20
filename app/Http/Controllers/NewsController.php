@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\News;
+use Facade\FlareClient\Stacktrace\File;
 use Illuminate\Http\Request;
 
 class NewsController extends Controller
@@ -72,7 +73,6 @@ class NewsController extends Controller
     public function show(News $news)
     {
         $images= explode('|', $news->image);
-        // $related_products= Product::where('category_id', $product->category_id)->where('id', '!=', $product->id)->limit(3)->get();
         return view('news_details', compact('news', 'images'));
     }
 
@@ -105,9 +105,18 @@ class NewsController extends Controller
      * @param  \App\Models\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function destroy(News $news)
+    public function destroy($id)
     {
-        //
+        $news = News::findOrFail($id);
+        $images = explode('|', $news->image);
+
+        foreach($images as $image){
+            $image_path = public_path("{$image}");
+            unlink($image_path);
+        }
+        
+        $news->delete();
+        return redirect()->back();
     }
 
     public function addNews(){
@@ -119,6 +128,7 @@ class NewsController extends Controller
             $images= explode('|', $news->image);
 
             $returnNews[] = [
+               'id'=>$news->id,
                'name'=> $news->name,
                'title'=> $news->title,
                'news_details'=> $news->news_details,

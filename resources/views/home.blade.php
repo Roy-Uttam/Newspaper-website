@@ -340,7 +340,7 @@
 
                 <div class="col-lg-3 col-sm-6 grid-margin mb-5 mb-sm-2">
                   <div class="position-relative image-hover">
-                    <a href="{{ url('/news/'. $news->id) }}"><img
+                    <a href="{{ url('/admin/news/'. $news->id) }}"><img
                       src="{{ asset(explode('|', $news->image)[0]) }}" height="300px"
                       class="img-fluid"
                       alt="world-news"
