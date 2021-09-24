@@ -336,7 +336,7 @@
               </div>
             </div>
             <div class="row">
-              @foreach ($worldNews as $news)
+              @foreach ($latestNews as $news)
 
                 <div class="col-lg-3 col-sm-6 grid-margin mb-5 mb-sm-2">
                   <div class="position-relative image-hover">

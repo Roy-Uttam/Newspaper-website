@@ -145,8 +145,11 @@
                                 <div>
                                     <h2><h1>{{$news->title}}</h1></h2>
                                 </div>
-                                
-                          
+
+                                <div>
+                                  <h2><h1>{{$news->$category->id}}</h1></h2>
+                              </div>
+
                                 <h3>Newst Details <i class="fa fa-indent"></i></h3>
                                 <br>
                                 

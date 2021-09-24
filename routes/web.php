@@ -26,7 +26,7 @@ Route::get('/account', function () {
 })->name('accounts');
 
 
-Route::get('/', '\App\Http\Controllers\NewsController@worldNews');
+Route::get('/', '\App\Http\Controllers\NewsController@latestNews');
 
 Route::resource('/users', \App\Http\Controllers\UserController::class);
 

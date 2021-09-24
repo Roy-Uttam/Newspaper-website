@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\News;
 use Facade\FlareClient\Stacktrace\File;
 use Illuminate\Http\Request;
@@ -26,7 +27,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -41,6 +42,7 @@ class NewsController extends Controller
         $newspaper->name= $request->has('name')? $request->get('name'):'';
         $newspaper->title= $request->has('title')? $request->get('title'):'';
         $newspaper->news_details= $request->has('news_details')? $request->get('news_details'):'';
+        $newspaper->category_id= $request->has('category_id')? $request->get('category_id'):'';
         $newspaper->is_active= 1;
 
         if($request->hasFile('images')){
@@ -121,6 +123,8 @@ class NewsController extends Controller
 
     public function addNews(){
 
+        $categories =Category::orderBy('id', 'desc')->get();
+
         $newspapers= News::all();
         $returnNews= array();
 
@@ -132,18 +136,19 @@ class NewsController extends Controller
                'name'=> $news->name,
                'title'=> $news->title,
                'news_details'=> $news->news_details,
+               'category_id'=> $news->category_id,
                'image'=> $images[0]
             ];
 
         }
 
-        return view('admin_panel', compact('returnNews'));
+        return view('admin_panel', compact('returnNews','categories'));
     }
 
-    public function worldNews(){
-        $worldNews = News::orderby('created_at' , 'desc')->limit(4)->get();        
+    public function latestNews(){
+        $latestNews = News::orderby('created_at' , 'desc')->limit(4)->get();        
 
-        return view('home' , compact('worldNews'));
+        return view('home' , compact('latestNews'));
 
     }
 }

@@ -133,14 +133,15 @@
                     <div class="account-page">
                         <div class="container">
                             <div class="row">
-
-                              @if(session()->has('success'))
-                                <div class="alert alert-success">
-                                    {{ session()->get('success') }}
-                                </div>
-                              @endif
                                     <div class="form-container">
-                                        
+
+                                      @if(session()->has('success'))
+                                      <div class="alert alert-success">
+                                          {{ session()->get('success') }}
+                                      </div>
+                                    @endif
+
+
                                         <div class="form-btn">
                                             <span onclick="register()">Register</span>
                                             <span onclick="login()">Login</span>

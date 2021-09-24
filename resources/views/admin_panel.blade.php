@@ -129,11 +129,17 @@
                                           <hr style="border: none; background: #ff523b; height: 3px;">
                                       </div>
                   
-                                      <form id="LoginForm" method="POST" action="/admin/news" enctype="multipart/form-data">
+                                      <form id="addNewsForm" method="POST" action="/admin/news" enctype="multipart/form-data">
                                           @csrf
                                           <input type="text" name="name" placeholder="News Name">
                                           <input type="text" name="title" placeholder="title">
+                                          <select name="category_id" class="form-control" placeholder="Category">
+                                            @foreach ($categories as $category)
+                                              <option value="{{$category->id}}">{{$category->category_name}}</option>
+                                             @endforeach
+                                          </select>
                                           <input type="text" name="news_details" placeholder="news_details">
+                                           
                                           <input type="file" name="images[]" multiple>
                                           <button type="submit" class="btn">Add News</button>
                                       </form>
