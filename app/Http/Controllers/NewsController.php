@@ -16,7 +16,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news= News::paginate(6);
+        $news= News::with('category')->paginate(6);
         return view('news', compact('news'));
     }
 
@@ -146,7 +146,7 @@ class NewsController extends Controller
     }
 
     public function latestNews(){
-        $latestNews = News::orderby('created_at' , 'desc')->limit(4)->get();        
+        $latestNews = News::with('category')->orderby('created_at' , 'desc')->limit(4)->get();        
 
         return view('home' , compact('latestNews'));
 
