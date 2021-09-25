@@ -8,9 +8,11 @@
     <title>Lal Matir Sakhipur</title>
     <!-- End plugin css for this page -->    
     <link href="{{ asset('images/favicon.png') }}" rel="shortcut icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <link href="/css/app.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
+
 
     <!-- endinject -->
   </head>
@@ -119,33 +121,45 @@
                             </div>
                         @endif
                         <div class="container">
-                    
-                            <div class="row">
-                              
-                                <div class="col-xs-4">
-                                  <div class="form-container">
-                                      <div class="form-btn">
-                                          <span>Add News</span>
-                                          <hr style="border: none; background: #ff523b; height: 3px;">
-                                      </div>
-                  
-                                      <form id="addNewsForm" method="POST" action="/admin/news" enctype="multipart/form-data">
-                                          @csrf
-                                          <input type="text" name="name" placeholder="News Name">
-                                          <input type="text" name="title" placeholder="title">
-                                          <select name="category_id" class="form-control" placeholder="Category">
-                                            @foreach ($categories as $category)
-                                              <option value="{{$category->id}}">{{$category->category_name}}</option>
-                                             @endforeach
-                                          </select>
-                                          <input type="text" name="news_details" placeholder="news_details">
-                                           
-                                          <input type="file" name="images[]" multiple>
-                                          <button type="submit" class="btn">Add News</button>
-                                      </form>
-                                  </div>
-                                </div>
+
+                              <div class="form-btn mb-3">
+                                  <span >Add News</span>
+                                  <hr style="border: none; background: #ff523b; height: 5px;">
                               </div>
+        
+                              <form id="addNewsForm" method="POST" action="/admin/news" enctype="multipart/form-data">
+                                  @csrf
+                                  
+                                  <div class="mb-3">
+                                    <input class="form-control" type="text" name="name" placeholder="News Name">
+                                  </div>
+
+                                  <div class="mb-3">
+                                    <input class="form-control" type="text" name="title" placeholder="News Title">
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                    <label class="input-group-text">category</label>
+                                    <select name="category_id" class="form-select" placeholder="Category">
+                                      @foreach ($categories as $category)
+                                        <option value="{{$category->id}}">{{$category->category_name}}</option>
+                                      @endforeach
+                                    </select>
+                                  </div>
+                                  
+                                  <div class="mb-3">
+                                    <textarea class="form-control" id="news_details" name="news_details"></textarea>
+                                  </div>
+
+                                  <div class="mb-3">
+                                    <input class="form-control" type="file" name="images[]" multiple>
+                                  </div>
+
+                                  <div class="mb-3">
+                                    <button type="submit" class="btn">Add News</button>
+                                  </div>
+                              </form>
+                            
                         </div>
                     </div>
 
@@ -295,9 +309,16 @@
 
             </div>
         </div>
+
     <!-- inject:js -->        
-    <!-- Custom js for this page-->                    
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+      <script>
+      CKEDITOR.replace( 'news_details' );
+</script>
+    <!-- Custom js for this page-->       
+
     <script type="text/javascript" src="/js/app.js"></script>    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <!-- End custom js for this page-->
 
 </body>
