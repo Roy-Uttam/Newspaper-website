@@ -18,7 +18,7 @@ class CreateNewsTable extends Migration
             $table->string('name');
             $table->string('image');
             $table->string('title');
-            $table->string('news_details');
+            $table->longText('news_details');
             $table->integer('category_id');
             $table->boolean('is_active');
             $table->timestamps();

@@ -345,7 +345,7 @@
                       class="img-fluid"
                       alt="world-news"
                     /></a>
-                    <span class="thumb-title">TRAVEL</span>
+                    <span class="thumb-title">{{$news->category->category_name}}</span>
                   </div>
                   <h5 class="font-weight-bold mt-3">
                     {{$news->name}}
