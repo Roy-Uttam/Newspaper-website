@@ -98,17 +98,17 @@ class CategoryController extends Controller
 
 
 
-    public function CatNews($cat_code)
+public function CatNews($cat_code)
+
 {
 
-    $catnews = Category::with('news')->where('cat_code',$cat_code)->get();
+    $categories = Category::orderBy('id' , 'desc')->get();
+
+    $catnews = Category::with('news')->where('cat_code', $cat_code)->get();
+
+    return view('cat_news' , compact('catnews','categories'));
     
-    return view('cat_news' , compact('catnews'));
-    
-    // dd($catnews);
 }
-
-
 
 }
 

@@ -20,115 +20,97 @@
             <div class="main-panel">
                 <div class="container">
 
-                    <nav class="navbar navbar-expand-lg navbar-light">
-                        <div class="d-flex justify-content-between align-items-center navbar-top">
-                          <ul class="navbar-left">
-                            <li>{{ date('Y-m-d H:i:s') }}</li>
-                            <li>30°C,London</li>
-                          </ul>
-                          <div>
-                            <a class="navbar-brand" href="#"><img src="{{ asset('images/logo.svg') }}" alt="" />
+                  <nav class="navbar navbar-expand-lg navbar-light">
+                    <div class="d-flex justify-content-between align-items-center navbar-top">
+                      <ul class="navbar-left">
+                        <li>{{ date('Y-m-d H:i:s') }}</li>
+                        <li>30°C,London</li>
+                      </ul>
+                      <div>
+                        <a class="navbar-brand" href="#"><img src="{{ asset('images/logo.svg') }}" alt="" />
+                        </a>
+                      </div>
+                      <div class="d-flex">
+                        <ul class="navbar-right">
+                          <li>
+                            <a href="#">ENGLISH</a>
+                          </li>
+                          <li>
+                            <a href="#">ESPAÑOL</a>
+                          </li>
+                        </ul>
+                        <ul class="social-media">
+                          <li>
+                            <a href="#">
+                              <i class="mdi mdi-instagram"></i>
                             </a>
-                          </div>
-                          <div class="d-flex">
-                            <ul class="navbar-right">
-                              <li>
-                                <a href="#">ENGLISH</a>
-                              </li>
-                              <li>
-                                <a href="#">ESPAÑOL</a>
-                              </li>
-                            </ul>
-                            <ul class="social-media">
-                              <li>
-                                <a href="#">
-                                  <i class="mdi mdi-instagram"></i>
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#">
-                                  <i class="mdi mdi-facebook"></i>
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#">
-                                  <i class="mdi mdi-youtube"></i>
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#">
-                                  <i class="mdi mdi-linkedin"></i>
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#">
-                                  <i class="mdi mdi-twitter"></i>
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                        <div class="navbar-bottom-menu">
-                          <button
-                            class="navbar-toggler"
-                            type="button"
-                            data-target="#navbarSupportedContent"
-                            aria-controls="navbarSupportedContent"
-                            aria-expanded="false"
-                            aria-label="Toggle navigation"
-                          >
-                            <span class="navbar-toggler-icon"></span>
-                          </button>
-          
-                          <div
-                            class="navbar-collapse justify-content-center collapse"
-                            id="navbarSupportedContent"
-                          >
-                            <ul
-                              class="navbar-nav d-lg-flex justify-content-between align-items-center"
-                            >
-                              <li>
-                                <button class="navbar-close">
-                                  <i class="mdi mdi-close"></i>
-                                </button>
-                              </li>
-                              <li class="nav-item active">
-                                <a class="nav-link active" href="{{ url('/')}}">Home</a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/pages')}}">World</a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/pages')}}">Magazine</a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/pages')}}">Blog</a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/pages')}}">Business</a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/pages')}}">Sports</a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/pages')}}">Art</a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/pages')}}">Politics</a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/pages')}}">Real estate</a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/pages')}}">Travel</a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link" href="#"><i class="mdi mdi-magnify"></i></a>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                    </nav>
+                          </li>
+                          <li>
+                            <a href="#">
+                              <i class="mdi mdi-facebook"></i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#">
+                              <i class="mdi mdi-youtube"></i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#">
+                              <i class="mdi mdi-linkedin"></i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#">
+                              <i class="mdi mdi-twitter"></i>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="navbar-bottom-menu">
+                      <button
+                        class="navbar-toggler"
+                        type="button"
+                        data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                      >
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+      
+                      <div
+                        class="navbar-collapse justify-content-center collapse"
+                        id="navbarSupportedContent"
+                      >
+                        <ul
+                          class="navbar-nav d-lg-flex justify-content-between align-items-center"
+                        >
+                          <li>
+                            <button class="navbar-close">
+                              <i class="mdi mdi-close"></i>
+                            </button>
+                          </li>
+                          <li class="nav-item active">
+                            <a class="nav-link active" href="{{ url('/')}}">Home</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/account')}}">Admin</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/admin/news') }}">All</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/admin/category') }}">Category</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="mdi mdi-magnify"></i></a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                </nav>
 
                     <div class="account-page">
                         <div class="container">

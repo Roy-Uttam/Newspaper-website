@@ -74,8 +74,9 @@ class NewsController extends Controller
      */
     public function show(News $news)
     {
+        $categories = Category::orderBy('id' , 'desc')->get();
         $images= explode('|', $news->image);
-        return view('news_details', compact('news', 'images'));
+        return view('news_details', compact('news', 'images','categories'));
     }
 
     /**
