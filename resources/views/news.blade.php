@@ -129,6 +129,7 @@
                                     <h4> {{$news->name}}</h4>
                                    
                                     <p>{{$news->title}}</p>
+                                    <p>{{$news->category->category_name}}</p>
                                 </div>
                             @endforeach
                         </div>

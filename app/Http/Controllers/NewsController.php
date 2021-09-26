@@ -145,10 +145,13 @@ class NewsController extends Controller
         return view('admin_panel', compact('returnNews','categories'));
     }
 
-    public function latestNews(){
-        $latestNews = News::with('category')->orderby('created_at' , 'desc')->limit(4)->get();        
+    public function allNews(){
 
-        return view('home' , compact('latestNews'));
+        $categories = Category::orderBy('id' , 'desc')->get();
+
+        // $news = News::with('category')->orderby('id', 'desc')->get();
+        $latestNews = News::with('category')->orderby('created_at' , 'desc')->limit(4)->get();  
+        return view('home' , compact('latestNews', 'categories'));
 
     }
 }

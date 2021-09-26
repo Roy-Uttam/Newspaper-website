@@ -166,6 +166,10 @@
                                                             </button>	
                                                         </form>
                                                     </td>
+                                                    <td>
+                                                      <a href="{{ url('/category/'. $category->cat_code. '/news') }}"><button type="submit" class="btn-danger btn-sm"></button></a>
+                                                    </td>
+                                                    
                                                     </tr>
                                                  
                                                     @endforeach

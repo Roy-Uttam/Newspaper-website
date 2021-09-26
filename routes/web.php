@@ -26,7 +26,7 @@ Route::get('/account', function () {
 })->name('accounts');
 
 
-Route::get('/', '\App\Http\Controllers\NewsController@latestNews');
+Route::get('/', '\App\Http\Controllers\NewsController@allNews');
 
 Route::resource('/users', \App\Http\Controllers\UserController::class);
 
@@ -41,3 +41,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/admin_news', '\App\Http\Controllers\NewsController@addNews');
     
 });
+
+Route::get('/category/{id}/news', '\App\Http\Controllers\CategoryController@CatNews');

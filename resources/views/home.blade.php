@@ -95,30 +95,11 @@
                     <li class="nav-item active">
                       <a class="nav-link active" href="{{ url('/')}}">Home</a>
                     </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="{{ url('/pages')}}">World</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="{{ url('/pages')}}">Magazine</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="{{ url('/pages')}}">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="{{ url('/pages')}}">Business</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="{{ url('/pages')}}">Sports</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="{{ url('/pages')}}">Art</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="{{ url('/pages')}}">Politics</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="{{ url('/pages')}}">Travel</a>
-                    </li>
+                    @foreach ($categories as $category)
+                      <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/category/'. $category->cat_code. '/news') }}">{{$category->category_name}}</a>
+                      </li>
+                    @endforeach
                     <li class="nav-item">
                       <a class="nav-link" href="{{ url('/account')}}">Admin</a>
                     </li>
@@ -470,6 +451,7 @@
                 </div>
               </div>
             </div>
+           
             <div class="row">
               <div class="col-lg-9">
                 <div class="row">
