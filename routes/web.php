@@ -17,9 +17,9 @@ Route::get('/pages', function () {
     return view('pages');
 });
 
-Route::get('/news_details', function () {
-    return view('news_details');
-});
+// Route::get('/post', function () {
+//     return view('news_details');
+// });
 
 Route::get('/account', function () {
     return view('account');
@@ -32,3 +32,9 @@ Route::resource('/users', \App\Http\Controllers\UserController::class);
 Route::resource('/news', \App\Http\Controllers\NewsController::class);
 
 Route::get('/admin_news', '\App\Http\Controllers\NewsController@addNews')->middleware('auth');
+
+Route::get('/post',function(){
+    return view('create-news');
+});
+
+Route::post('ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');

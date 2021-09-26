@@ -1,1 +1,10 @@
+.bottomborder{
+    border-bottom: 1px solid #121212;
+    display: inline;
+}
+
+.topborder{
+    border-top: 4px solid #121212;
+    display: inline;
+}
 

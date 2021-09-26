@@ -8,6 +8,7 @@
     <title>Lal Matir Sakhipur</title>
     <!-- End plugin css for this page -->    
     <link href="{{ asset('images/favicon.png') }}" rel="shortcut icon">
+    
 
     <link href="/css/app.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
@@ -298,6 +299,7 @@
     <!-- Custom js for this page-->                    
     <script type="text/javascript" src="/js/app.js"></script>    
     <!-- End custom js for this page-->
+    <script src="//cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
 
 </body>
 </html>
