@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\News;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -93,4 +94,22 @@ class CategoryController extends Controller
     
     return redirect()->back();
     }
+
+
+
+
+    public function CatNews($cat_code)
+{
+
+    $catnews = Category::with('news')->where('cat_code',$cat_code)->get();
+    
+    return view('cat_news' , compact('catnews'));
+    
+    // dd($catnews);
 }
+
+
+
+}
+
+
