@@ -27,8 +27,7 @@
                             <li>30°C,London</li>
                           </ul>
                           <div>
-                            <a class="navbar-brand" href="#"><img src="{{ asset('images/logo.svg') }}" alt="" />
-                            </a>
+                            <h1>LAL MATIR SAKHIPUR</h1>
                           </div>
                           <div class="d-flex">
                             <ul class="navbar-right">
