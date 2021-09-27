@@ -153,7 +153,6 @@ class NewsController extends Controller
 
         $categories = Category::orderBy('id' , 'desc')->get();
         
-        
         $latestNews = News::with('category')->orderby('created_at' , 'desc')->limit(4)->get();  
         return view('home' , compact('latestNews', 'categories'));
 
