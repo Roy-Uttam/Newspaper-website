@@ -8,6 +8,7 @@
     <title>Lal Matir Sakhipur</title>
     <!-- End plugin css for this page -->    
     <link href="{{ asset('images/favicon.png') }}" rel="shortcut icon">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
 
     <link href="/css/app.css" rel="stylesheet">
