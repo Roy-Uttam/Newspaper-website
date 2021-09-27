@@ -8,6 +8,7 @@
     <title>Lal Matir Sakhipur</title>
     <!-- End plugin css for this page -->    
     <link href="{{ asset('images/favicon.png') }}" rel="shortcut icon">
+    <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
 
     <link href="/css/app.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
@@ -42,27 +43,32 @@
                         <ul class="social-media">
                           <li>
                             <a href="#">
-                              <i class="mdi mdi-instagram"></i>
+          
+                              <span class="iconify" data-icon="mdi:instagram"></span>
                             </a>
                           </li>
                           <li>
                             <a href="#">
-                              <i class="mdi mdi-facebook"></i>
+          
+                              <span class="iconify" data-icon="mdi:facebook"></span>
                             </a>
                           </li>
                           <li>
                             <a href="#">
-                              <i class="mdi mdi-youtube"></i>
+          
+                              <span class="iconify" data-icon="mdi:youtube"></span>
                             </a>
                           </li>
                           <li>
                             <a href="#">
-                              <i class="mdi mdi-linkedin"></i>
+          
+                              <span class="iconify" data-icon="mdi:linkedin"></span>
                             </a>
                           </li>
                           <li>
                             <a href="#">
-                              <i class="mdi mdi-twitter"></i>
+          
+                              <span class="iconify" data-icon="mdi:twitter"></span>
                             </a>
                           </li>
                         </ul>

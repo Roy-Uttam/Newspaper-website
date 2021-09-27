@@ -19,7 +19,6 @@
 
                                     <p>{{$cat->category_name}}</p>
                                     {{-- <p>{{$cat->news}}</p> --}}
-<div>
                                     @foreach ($cat->news as $news)
                                     <a href="{{ url('/admin/news/'. $news->id) }}"><img src="{{asset(explode('|', $news->image)[0])}}" height="300" width="300"></a>
                                     <p>{{$news->name}}</p>

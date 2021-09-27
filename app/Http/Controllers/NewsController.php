@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\News;
+use Carbon\Carbon;
 use Facade\FlareClient\Stacktrace\File;
 use Illuminate\Http\Request;
 
@@ -17,6 +18,7 @@ class NewsController extends Controller
     public function index()
     {
         $news= News::with('category')->paginate(6);
+        
         return view('news', compact('news'));
     }
 
@@ -75,6 +77,7 @@ class NewsController extends Controller
     public function show(News $news)
     {
         $categories = Category::orderBy('id' , 'desc')->get();
+        
         $images= explode('|', $news->image);
         return view('news_details', compact('news', 'images','categories'));
     }
@@ -125,7 +128,7 @@ class NewsController extends Controller
     public function addNews(){
 
         $categories =Category::orderBy('id', 'desc')->get();
-
+        
         $newspapers= News::all();
         $returnNews= array();
 
@@ -149,8 +152,8 @@ class NewsController extends Controller
     public function allNews(){
 
         $categories = Category::orderBy('id' , 'desc')->get();
-
-        // $news = News::with('category')->orderby('id', 'desc')->get();
+        
+        
         $latestNews = News::with('category')->orderby('created_at' , 'desc')->limit(4)->get();  
         return view('home' , compact('latestNews', 'categories'));
 
