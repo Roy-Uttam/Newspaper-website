@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\News;
+use App\Models\Setting;
 use Carbon\Carbon;
 use Facade\FlareClient\Stacktrace\File;
 use Illuminate\Http\Request;
@@ -17,7 +18,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news= News::with('category')->paginate(6);
+        $news= News::with('category')->get();
         
         return view('news', compact('news'));
     }
@@ -44,9 +45,25 @@ class NewsController extends Controller
         $newspaper->name= $request->has('name')? $request->get('name'):'';
         $newspaper->title= $request->has('title')? $request->get('title'):'';
         $newspaper->news_details= $request->has('news_details')? $request->get('news_details'):'';
-        $newspaper->category_id= $request->has('category_id')? $request->get('category_id'):'';
         $newspaper->is_active= 1;
 
+        
+        if($request->has('category_id')){
+            $files = $request->get('category_id');
+
+            $fil = array();
+            
+            foreach ($files as $file){
+
+
+            $fil[] = $file;
+            
+             $newspaper->category_id = implode('|', $fil);
+
+            }
+            
+        }
+        
         if($request->hasFile('images')){
             $files = $request->file('images');
 
@@ -77,7 +94,6 @@ class NewsController extends Controller
     public function show(News $news)
     {
         $categories = Category::orderBy('id' , 'desc')->get();
-        
         $images= explode('|', $news->image);
         return view('news_details', compact('news', 'images','categories'));
     }
@@ -134,13 +150,15 @@ class NewsController extends Controller
 
         foreach ($newspapers as $news){
             $images= explode('|', $news->image);
+            $category_id = explode('|', $news->category_id);
+            
 
             $returnNews[] = [
                'id'=>$news->id,
                'name'=> $news->name,
                'title'=> $news->title,
                'news_details'=> $news->news_details,
-               'category_id'=> $news->category_id,
+               'category_id'=> $category_id,
                'image'=> $images[0]
             ];
 
@@ -151,10 +169,26 @@ class NewsController extends Controller
 
     public function allNews(){
 
+        $setting =Setting::all();
+        foreach ($setting as $key => $value) {
+
+                $catId= $value->category_id;
+            }
+
         $categories = Category::orderBy('id' , 'desc')->get();
         
+        $popular = Setting::with('category','news')->where('category_id', $catId)->limit(4)->get();
+        
+        foreach ($popular as $key => $value) {
+           
+            $news1= $value->news;
+        }
+        
         $latestNews = News::with('category')->orderby('created_at' , 'desc')->limit(4)->get();  
-        return view('home' , compact('latestNews', 'categories'));
+
+        return view('home' , compact('latestNews', 'categories','news1'));
 
     }
+
+    
 }

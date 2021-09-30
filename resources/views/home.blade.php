@@ -68,7 +68,7 @@
                 <div class="carousel-inner" role="listbox">
                   @foreach( $latestNews as $news )
                      <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-                         <img class="d-block w-100" src="{{ asset(explode('|', $news->image)[0]) }}">
+                         <a href="{{ url('/admin/news/'. $news->id) }}"><img class="d-block w-100" src="{{ asset(explode('|', $news->image)[0]) }}"></a>
                             <div class="carousel-caption d-none d-md-block">
                                <h3>{{$news->name}}</h3>
                                <p>{{$news->title}}</p>
@@ -197,12 +197,49 @@
               </div>
             </div>
             <div class="row">
+              @foreach ($news1 as $news1)
+
+                <div class="col-lg-3 col-sm-6 grid-margin mb-5 mb-sm-2">
+                  <div class="position-relative image-hover">
+                    <a href="{{ url('/admin/news/'. $news1->id) }}"><img
+                      src="{{ asset(explode('|', $news1->image)[0]) }}"
+                      class="img-fluid"
+                      alt="world-news"
+                    /></a>
+                    <span class="thumb-title">{{$news->category->category_name}}</span>
+                  </div>
+                  <h5 class="font-weight-bold mt-3">
+                    {{$news1->name}}
+                  </h5>
+                  <p class="fs-15 font-weight-normal">
+                    {{$news1->title}}
+                  </p>
+                  <a href="{{ url('/admin/news/'. $news->id) }}" class="font-weight-bold text-dark pt-2"
+                    >Read Article</a
+                  >
+                 
+                </div>
+              @endforeach
+        
+            </div>
+
+          </div>
+
+          <div class="world-news">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="d-flex position-relative float-left">
+                  <h3 class="section-title">Latest News</h3>
+                </div>
+              </div>
+            </div>
+            <div class="row">
               @foreach ($latestNews as $news)
 
                 <div class="col-lg-3 col-sm-6 grid-margin mb-5 mb-sm-2">
                   <div class="position-relative image-hover">
                     <a href="{{ url('/admin/news/'. $news->id) }}"><img
-                      src="{{ asset(explode('|', $news->image)[0]) }}" height="300px"
+                      src="{{ asset(explode('|', $news->image)[0]) }}"
                       class="img-fluid"
                       alt="world-news"
                     /></a>
@@ -214,14 +251,16 @@
                   <p class="fs-15 font-weight-normal">
                     {{$news->title}}
                   </p>
-                  <a href="#" class="font-weight-bold text-dark pt-2"
+                  <a href="{{ url('/admin/news/'. $news->id) }}" class="font-weight-bold text-dark pt-2"
                     >Read Article</a
                   >
                 </div>
               @endforeach
         
             </div>
+
           </div>
+
           {{-- World News Area closed --}}
 
           <div class="editors-news">

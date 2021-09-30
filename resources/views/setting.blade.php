@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zxx">
   <head>
@@ -122,107 +123,70 @@
                 </div>
             </div>
         </div>
+          <div>
+              
 
-        <div class="container">
-          <div class="account-page">
-            @if(session()->has('success'))
-                <div class="alert alert-success">
-                    {{ session()->get('success') }}
-                </div>
-            @endif
-            {{-- <div class="container"> --}}
-
-                  <div class="form-btn mb-3">
-                      <span >Add News</span>
-                      <hr style="border: none; background: #ff523b; height: 5px;">
-                  </div>
-
-                  <form id="addNewsForm" method="POST" action="/admin/news" enctype="multipart/form-data">
-                      @csrf
-
-                      <div class="row">
-                      <div class="col-md-8">
-                      <div class="mb-3">
-                        <input class="form-control" type="text" name="name" placeholder="News Name">
-                      </div>
-
-                      <div class="mb-3">
-                        <input class="form-control" type="text" name="title" placeholder="News Title">
-                      </div>
-                      
-                      <div class="mb-3">
-                        <textarea class="form-control" id="news_details" name="news_details"></textarea>
-                      </div>
-
-                      <div class="mb-3">
-                        <input class="form-control" type="file" name="images[]" multiple>
-                      </div>
-
-                      <div class="mb-3">
-                        <button type="submit" class="btn">Add News</button>
-                      </div>
-
-                      </div>
-
-                      <div class="col-md-3">
-                      <div id="viewport">
-                        <!-- Sidebar -->
-                        <div id="sidebar">
-                            <header>
-                              <a href="#">category</a>
-                            </header>
-                            <div>
-                              @foreach ($categories as $category)
-                              <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="{{$category->id}}" id="flexCheckDefault" name="category_id[]" multiple>
-                                <label class="form-check-label" for="flexCheckDefault">
-                                  {{$category->category_name}}
-                                </label>
-                              </div>
-                              @endforeach
-                            </div>
-                            </div>
-                      </div>
-                    </div>
-                  </div>
-                  </form>
-                
-            {{-- </div> --}}
-          </div>
-        </div>
-
-        <div class="container">
-          <div class="row">
-                      
-            @foreach ($returnNews as $news)
-
-              <div class="col-sm-3">
-                <div class="card">
-                  <div class="card-body">
-                    
-                    <img src="{{asset($news['image'])}}" height="200" width="200" alt="">
-                    <h5 class="card-title">{{$news['name']}}</h5>
-                    <p class="card-text">{{$news['title']}}</p>
-                    
-                    <tr>
-                      <td><a href="#" class="btn btn-primary">edit</a></td>
-                      <td><form method="POST" action=" {{ route('news.destroy', ['news' => $news['id']]) }} ">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <form id="addNewsForm" method="POST" action="" enctype="multipart/form-data">
                         @csrf
-                        @method('DELETE')
-                        <button onclick="return confirm('Are you sure?')" type="submit" class="btn btn-danger btn-sm"> 
-                            delete
-                        </button>	
-                      </form></td>
-                    </tr>
+                      <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">Popular News section</h5>
+                            <select class="form-select" name="category_id" aria-label="Default select example">
+                              <option selected>Open this select menu</option>
+                                @foreach ($categories as $category)
+                                  <option value="{{$category->id}}">{{$category->category_name}}</option>
+                                @endforeach
+                            </select>
+                            <button class="btn btn-primary" type="submit">submit</button>
+                        </div>
+                      </div>
+                      </form>
+                    </div>
+
+                    <div class="col-md-4">
+                      <form id="addNewsForm" method="POST" action="/admin/setting" enctype="multipart/form-data">
+                        @csrf
+                      <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">Popular News section</h5>
+                            <select class="form-select" name="category_id" aria-label="Default select example">
+                              <option selected>Open this select menu</option>
+                                @foreach ($categories as $category)
+                                  <option value="{{$category->id}}">{{$category->category_name}}</option>
+                                @endforeach
+                            </select>
+                            <button class="btn btn-primary" type="submit">submit</button>
+                        </div>
+                      </div>
+                      </form>
+                    </div>
+
+                    <div class="col-md-4">
+                      <form id="addNewsForm" method="POST" action="" enctype="multipart/form-data">
+                        @csrf
+                      <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">Popular News section</h5>
+                            <select class="form-select" name="category_id" aria-label="Default select example">
+                              <option selected>Open this select menu</option>
+                                @foreach ($categories as $category)
+                                  <option value="{{$category->id}}">{{$category->category_name}}</option>
+                                @endforeach
+                            </select>
+                            <button class="btn btn-primary" type="submit">submit</button>
+                        </div>
+                      </div>
+                      </form>
+                    </div>
 
                   </div>
                 </div>
-              </div>
-
-            @endforeach
-            
+        
+           
           </div>
-        </div>
 
         <div class="container-scroller">
               <footer>

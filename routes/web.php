@@ -43,3 +43,11 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::get('/category/{id}/news', '\App\Http\Controllers\CategoryController@CatNews');
+Route::resource('/admin/setting', \App\Http\Controllers\settingController::class);
+
+
+// Route::get('/catwise', '\App\Http\Controllers\NewsController@catwise');
+
+// Route::resource('/admin/setting', \App\Http\Controllers\settingController::class);
+// Route::get('/admin/settings', '\App\Http\Controllers\settingController@settings')->name('admin.settings');
+

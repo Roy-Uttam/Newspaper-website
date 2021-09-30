@@ -102,11 +102,31 @@ public function CatNews($cat_code)
 
 {
 
-    $categories = Category::orderBy('id' , 'desc')->get();
+    $cat = News::with('category')->get();
+    $cat1 = Category::orderby('id', 'desc')->get();
 
-    $catnews = Category::with('news')->where('cat_code', $cat_code)->get();
+    $popular= array();
+    
+    foreach ($cat1 as $cat2) {
 
-    return view('cat_news' , compact('catnews','categories'));
+        
+        $popular[] = News::with('category')->where('category_id', $cat2->id)->limit(4)->get();
+        
+
+    
+    }
+    dd( $popular);
+    
+
+    
+
+    // $cat->category;
+    // dd($cat->category);
+    // $categories = Category::orderBy('id' , 'desc')->get();
+
+    // $catnews = Category::with('news')->where('cat_code', $cat_code)->get();
+
+    // return view('cat_news' , compact('catnews','categories'));
     
 }
 
