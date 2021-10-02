@@ -47,22 +47,25 @@ class NewsController extends Controller
         $newspaper->news_details= $request->has('news_details')? $request->get('news_details'):'';
         $newspaper->is_active= 1;
 
+
+        $cat_id = $request->category_id;
+        $newspaper->category_id = implode(' ', $cat_id);
         
-        if($request->has('category_id')){
-            $files = $request->get('category_id');
+        // if($request->has('category_id')){
+        //     $files = $request->get('category_id');
 
-            $fil = array();
+        //     $fil = array();
             
-            foreach ($files as $file){
+        //     foreach ($files as $file){
 
 
-            $fil[] = $file;
+        //     $fil[] = $file;
             
-             $newspaper->category_id = implode('|', $fil);
+        //      $newspaper->category_id = implode('|', $fil);
 
-            }
+        //     }
             
-        }
+        // }
         
         if($request->hasFile('images')){
             $files = $request->file('images');
@@ -150,7 +153,7 @@ class NewsController extends Controller
 
         foreach ($newspapers as $news){
             $images= explode('|', $news->image);
-            $category_id = explode('|', $news->category_id);
+            $category_id = explode(' ', $news->category_id);
             
 
             $returnNews[] = [
@@ -172,21 +175,36 @@ class NewsController extends Controller
         $setting =Setting::all();
         foreach ($setting as $key => $value) {
 
-                $catId= $value->category_id;
+                $catId1= $value->category_id1;
+                $catId2= $value->category_id2;
+                $catId3= $value->category_id3;
             }
 
+            
         $categories = Category::orderBy('id' , 'desc')->get();
         
-        $popular = Setting::with('category','news')->where('category_id', $catId)->limit(4)->get();
-        
-        foreach ($popular as $key => $value) {
+        // $popular = Setting::with('category','news')->where('category_id1', $catId1)->limit(4)->get();
+        $popular1 = Category::with('news')->where('id', $catId1)->limit(4)->get();
+        foreach ($popular1 as $key => $value) {
            
             $news1= $value->news;
+        }
+
+        $popular2 = Category::with('news')->where('id', $catId2)->limit(4)->get();
+        foreach ($popular2 as $key => $value) {
+           
+            $news2= $value->news;
+        }
+
+        $popular3 = Category::with('news')->where('id', $catId3)->limit(4)->get();
+        foreach ($popular3 as $key => $value) {
+           
+            $news3= $value->news;
         }
         
         $latestNews = News::with('category')->orderby('created_at' , 'desc')->limit(4)->get();  
 
-        return view('home' , compact('latestNews', 'categories','news1'));
+        return view('home' , compact('latestNews', 'categories','news1','news2','news3'));
 
     }
 

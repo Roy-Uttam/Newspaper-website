@@ -15,7 +15,9 @@ class CreateSettingsTable extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
-            $table->string('category_id');
+            $table->string('category_id1')->default(0);
+            $table->string('category_id2')->default(0);
+            $table->string('category_id3')->default(0);
             $table->timestamps();
         });
     }

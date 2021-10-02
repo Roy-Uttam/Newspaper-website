@@ -206,7 +206,81 @@
                       class="img-fluid"
                       alt="world-news"
                     /></a>
-                    <span class="thumb-title">{{$news->category->category_name}}</span>
+                    <span class="thumb-title">{{$news1->category->category_name}}</span>
+                  </div>
+                  <h5 class="font-weight-bold mt-3">
+                    {{$news1->name}}
+                  </h5>
+                  <p class="fs-15 font-weight-normal">
+                    {{$news1->title}}
+                  </p>
+                  <a href="{{ url('/admin/news/'. $news->id) }}" class="font-weight-bold text-dark pt-2"
+                    >Read Article</a
+                  >
+                 
+                </div>
+              @endforeach
+        
+            </div>
+
+          </div>
+
+          <div class="world-news">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="d-flex position-relative  float-left">
+                  <h3 class="section-title">World News</h3>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              @foreach ($news2 as $news1)
+
+                <div class="col-lg-3 col-sm-6 grid-margin mb-5 mb-sm-2">
+                  <div class="position-relative image-hover">
+                    <a href="{{ url('/admin/news/'. $news1->id) }}"><img
+                      src="{{ asset(explode('|', $news1->image)[0]) }}"
+                      class="img-fluid"
+                      alt="world-news"
+                    /></a>
+                    <span class="thumb-title">{{$news1->category->category_name}}</span>
+                  </div>
+                  <h5 class="font-weight-bold mt-3">
+                    {{$news1->name}}
+                  </h5>
+                  <p class="fs-15 font-weight-normal">
+                    {{$news1->title}}
+                  </p>
+                  <a href="{{ url('/admin/news/'. $news->id) }}" class="font-weight-bold text-dark pt-2"
+                    >Read Article</a
+                  >
+                 
+                </div>
+              @endforeach
+        
+            </div>
+
+          </div>
+
+          <div class="world-news">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="d-flex position-relative  float-left">
+                  <h3 class="section-title">World News</h3>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              @foreach ($news3 as $news1)
+
+                <div class="col-lg-3 col-sm-6 grid-margin mb-5 mb-sm-2">
+                  <div class="position-relative image-hover">
+                    <a href="{{ url('/admin/news/'. $news1->id) }}"><img
+                      src="{{ asset(explode('|', $news1->image)[0]) }}"
+                      class="img-fluid"
+                      alt="world-news"
+                    /></a>
+                    <span class="thumb-title">{{$news1->category->category_name}}</span>
                   </div>
                   <h5 class="font-weight-bold mt-3">
                     {{$news1->name}}
@@ -275,55 +349,39 @@
               <div class="col-lg-6  mb-5 mb-sm-2">
                 <div class="position-relative image-hover">
                   <img                    
-                    src="{{ asset('images/dashboard/glob.jpg') }}"
+                    src="{{ asset(explode('|', $news->image)[0]) }}"
                     class="img-fluid"
                     alt="world-news"
                   />
-                  <span class="thumb-title">NEWS</span>
+                  <span class="thumb-title">{{$news->category->category_name}}</span>
                 </div>
                 <h1 class="font-weight-600 mt-3">
-                  Melania Trump speaks about courage at State Department
+                  {{$news->name}}
                 </h1>
                 <p class="fs-15 font-weight-normal">
-                  Lorem Ipsum has been the industry's standard dummy text ever
-                  since the 1500s, when an unknown printer took a galley of type
-                  and
+                  {{$news->title}}
                 </p>
               </div>
               <div class="col-lg-6  mb-5 mb-sm-2">
                 <div class="row">
+                  @foreach ($news2 as $news1)
                   <div class="col-sm-6  mb-5 mb-sm-2">
                     <div class="position-relative image-hover">
                       <img                        
-                        src="{{ asset('images/dashboard/star-magazine-5.jpg') }}"
+                        src="{{ asset(explode('|', $news1->image)[0]) }}"
                         class="img-fluid"
                         alt="world-news"
                       />
-                      <span class="thumb-title">POLITICS</span>
+                      <span class="thumb-title">{{$news1->category->category_name}}</span>
                     </div>
                     <h5 class="font-weight-600 mt-3">
-                      A look at California's eerie plane graveyards
+                      {{$news1->name}}
                     </h5>
                     <p class="fs-15 font-weight-normal">
-                      Lorem Ipsum has been the industry's standard dummy text
+                      {{$news1->title}}
                     </p>
                   </div>
-                  <div class="col-sm-6  mb-5 mb-sm-2">
-                    <div class="position-relative image-hover">
-                      <img                        
-                        src="{{ asset('images/dashboard/star-magazine-6.jpg') }}"
-                        class="img-fluid"
-                        alt="world-news"
-                      />
-                      <span class="thumb-title">TRAVEL</span>
-                    </div>
-                    <h5 class="font-weight-600 mt-3">
-                      The world's most beautiful racecourses
-                    </h5>
-                    <p class="fs-15 font-weight-normal">
-                      Lorem Ipsum has been the industry's standard dummy text
-                    </p>
-                  </div>
+                  @endforeach
                 </div>
                 <div class="row mt-3">
                   <div class="col-sm-6  mb-5 mb-sm-2">
@@ -374,47 +432,23 @@
             <div class="row">
               <div class="col-lg-9">
                 <div class="row">
+                  @foreach ($latestNews as $news)
                   <div class="col-sm-4  mb-5 mb-sm-2">
                     <div class="position-relative image-hover">
                       <img                        
-                        src="{{ asset('images/dashboard/star-magazine-9.jpg') }}"
+                        src="{{ asset(explode('|', $news->image)[0]) }}"
                         class="img-fluid"
                         alt="world-news"
                       />
-                      <span class="thumb-title">LIFESTYLE</span>
+                      <span class="thumb-title">{{$news->category->category_name}}</span>
                     </div>
                     <h5 class="font-weight-600 mt-3">
-                      The island country that gave Mayor Pete his name
+                      {{$news->name}}
                     </h5>
                   </div>
-                  <div class="col-sm-4 mb-5 mb-sm-2">
-                    <div class="position-relative image-hover">
-                      <img                        
-                        src="{{ asset('images/dashboard/star-magazine-10.jpg') }}"
-                        class="img-fluid"
-                        alt="world-news"
-                      />
-                      <span class="thumb-title">SPORTS</span>
-                    </div>
-                    <h5 class="font-weight-600 mt-3">
-                      Disney parks expand (good) vegan food options
-                    </h5>
-                  </div>
-                  <div class="col-sm-4 mb-5 mb-sm-2">
-                    <div class="position-relative image-hover">
-                      <img                        
-                        src="{{ asset('images/dashboard/star-magazine-11.jpg') }}"
-                        class="img-fluid"
-                        alt="world-news"
-                      />
-                      <span class="thumb-title">INTERNET</span>
-                    </div>
-                    <h5 class="font-weight-600 mt-3">
-                      A hot springs where clothing is optional after dark
-                    </h5>
-                  </div>
+                  @endforeach
                 </div>
-                <div class="row mt-3">
+                {{-- <div class="row mt-3">
                   <div class="col-sm-4 mb-5 mb-sm-2">
                     <div class="position-relative image-hover">
                       <img                        
@@ -454,7 +488,7 @@
                       From Pakistan to the Caribbean: Curry's journey
                     </h5>
                   </div>
-                </div>
+                </div> --}}
               </div>
               <div class="col-lg-3">
                 <div class="position-relative mb-3">

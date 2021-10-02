@@ -11,7 +11,9 @@ class Setting extends Model
     protected $fillable=[
 
         
-        'category_id'
+        'category_id1',
+        'category_id2',
+        'category_id3'
       
 
     ];

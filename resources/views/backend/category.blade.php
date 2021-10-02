@@ -110,6 +110,9 @@
                                   <a class="nav-link" href="{{ url('/admin/category') }}">Category</a>
                                 </li>
                                 <li class="nav-item">
+                                  <a class="nav-link" href="{{ url('/admin/setting') }}">Setting</a>
+                                </li>
+                                <li class="nav-item">
                                   <a class="nav-link" href="#"><i class="mdi mdi-magnify"></i></a>
                                 </li>
                             </ul>
@@ -168,12 +171,12 @@
                                                             @csrf
                                                             @method('DELETE')
                                                             <button onclick="return confirm('Are you sure?')" type="submit" class="btn btn-danger btn-sm"> 
-                                                                <i class="fa fa-trash">delete</i>  
+                                                              <span class="iconify" data-icon="oi:delete"></span>
                                                             </button>	
                                                         </form>
                                                     </td>
                                                     <td>
-                                                      <a href="{{ url('/category/'. $category->cat_code. '/news') }}"><button type="submit" class="btn-danger btn-sm"></button></a>
+                                                      <a href="{{ url('/category/'. $category->cat_code. '/news') }}"><button type="submit" class="btn-primary btn-sm">View all</button></a>
                                                     </td>
                                                     
                                                     </tr>

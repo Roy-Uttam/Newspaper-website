@@ -113,6 +113,9 @@
                             <a class="nav-link" href="{{ url('/admin/category') }}">Category</a>
                           </li>
                           <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/admin/setting') }}">Setting</a>
+                          </li>
+                          <li class="nav-item">
                             <a class="nav-link" href="#"><i class="mdi mdi-magnify"></i></a>
                           </li>
                         </ul>
@@ -126,64 +129,59 @@
           <div>
               
 
-                <div class="container">
-                  <div class="row">
-                    <div class="col-md-4">
-                      <form id="addNewsForm" method="POST" action="" enctype="multipart/form-data">
-                        @csrf
-                      <div class="card">
-                        <div class="card-body">
-                          <h5 class="card-title">Popular News section</h5>
-                            <select class="form-select" name="category_id" aria-label="Default select example">
-                              <option selected>Open this select menu</option>
-                                @foreach ($categories as $category)
-                                  <option value="{{$category->id}}">{{$category->category_name}}</option>
-                                @endforeach
-                            </select>
-                            <button class="btn btn-primary" type="submit">submit</button>
-                        </div>
-                      </div>
-                      </form>
+            <div class="container">
+              <div class="row">
+                <form id="addNewsForm" method="GET" action="/admin/settings" enctype="multipart/form-data">
+                  @csrf
+                <div class="col-md-4">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Popular News section</h5>
+                        <select class="form-select" name="category_id1" aria-label="Default select example">
+                          <option selected>Open this select menu</option>
+                            @foreach ($categories as $category)
+                              <option value="{{$category->id}}">{{$category->category_name}}</option>
+                            @endforeach
+                        </select>
                     </div>
-
-                    <div class="col-md-4">
-                      <form id="addNewsForm" method="POST" action="/admin/setting" enctype="multipart/form-data">
-                        @csrf
-                      <div class="card">
-                        <div class="card-body">
-                          <h5 class="card-title">Popular News section</h5>
-                            <select class="form-select" name="category_id" aria-label="Default select example">
-                              <option selected>Open this select menu</option>
-                                @foreach ($categories as $category)
-                                  <option value="{{$category->id}}">{{$category->category_name}}</option>
-                                @endforeach
-                            </select>
-                            <button class="btn btn-primary" type="submit">submit</button>
-                        </div>
-                      </div>
-                      </form>
-                    </div>
-
-                    <div class="col-md-4">
-                      <form id="addNewsForm" method="POST" action="" enctype="multipart/form-data">
-                        @csrf
-                      <div class="card">
-                        <div class="card-body">
-                          <h5 class="card-title">Popular News section</h5>
-                            <select class="form-select" name="category_id" aria-label="Default select example">
-                              <option selected>Open this select menu</option>
-                                @foreach ($categories as $category)
-                                  <option value="{{$category->id}}">{{$category->category_name}}</option>
-                                @endforeach
-                            </select>
-                            <button class="btn btn-primary" type="submit">submit</button>
-                        </div>
-                      </div>
-                      </form>
-                    </div>
-
                   </div>
                 </div>
+
+                <div class="col-md-4">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Popular News section</h5>
+                        <select class="form-select" name="category_id2" aria-label="Default select example">
+                          <option selected>Open this select menu</option>
+                            @foreach ($categories as $category)
+                              <option value="{{$category->id}}">{{$category->category_name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Popular News section</h5>
+                        <select class="form-select" name="category_id3" aria-label="Default select example">
+                          <option selected>Open this select menu</option>
+                            @foreach ($categories as $category)
+                              <option value="{{$category->id}}">{{$category->category_name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <button class="btn btn-primary" type="submit">submit</button>
+                </div>
+                </form>
+              </div>
+            </div>
+
+               
         
            
           </div>
