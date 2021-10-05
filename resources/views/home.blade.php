@@ -6,52 +6,20 @@
         <div class="container">
           <div class="banner-top-thumb-wrap">
             <div class="d-lg-flex justify-content-between align-items-center">
-              <div class="d-flex justify-content-between  mb-3 mb-lg-0">
+              @foreach( $latestNews as $news )
+              <a href="{{ url('/admin/news/'. $news->id) }}"><div class="d-flex justify-content-between  mb-3 mb-lg-0">
                 <div>
                   <img
-                    src="{{ asset('images/dashboard/star-magazine-1.jpg') }}"
+                    src="{{ asset(explode('|', $news->image)[0]) }}"
                     alt="thumb"
                     class="banner-top-thumb"
                   />
                 </div>
                 <h5 class="m-0 font-weight-bold">
-                  The morning after: What people
+                  {{$news->name}}
                 </h5>
-              </div>
-              <div class="d-flex justify-content-between mb-3 mb-lg-0">
-                <div>
-                  <img
-                    src="{{ asset('images/dashboard/star-magazine-2.jpg') }}"
-                    alt="thumb"
-                    class="banner-top-thumb"
-                  />
-                </div>
-                <h5 class="m-0 font-weight-bold">How Hungary produced the</h5>
-              </div>
-              <div class="d-flex justify-content-between mb-3 mb-lg-0">
-                <div>
-                  <img
-                    src="{{ asset('images/dashboard/star-magazine-3.jpg') }}"
-                    alt="thumb"
-                    class="banner-top-thumb"
-                  />
-                </div>
-                <h5 class="m-0 font-weight-bold">
-                  A sleepy island paradise's most
-                </h5>
-              </div>
-              <div class="d-flex justify-content-between mb-3 mb-lg-0">
-                <div>
-                  <img
-                    src="{{ asset('images/dashboard/star-magazine-4.jpg') }}"
-                    alt="thumb"
-                    class="banner-top-thumb"
-                  />
-                </div>
-                <h5 class="m-0 font-weight-bold">
-                  America's most popular national
-                </h5>
-              </div>
+              </div></a>
+              @endforeach
             </div>
           </div>
           <div class="row">
@@ -197,22 +165,22 @@
               </div>
             </div>
             <div class="row">
-              @foreach ($news1 as $news1)
+              @foreach ($news1->take(4) as $news)
 
                 <div class="col-lg-3 col-sm-6 grid-margin mb-5 mb-sm-2">
                   <div class="position-relative image-hover">
-                    <a href="{{ url('/admin/news/'. $news1->id) }}"><img
-                      src="{{ asset(explode('|', $news1->image)[0]) }}"
+                    <a href="{{ url('/admin/news/'. $news->id) }}"><img
+                      src="{{ asset(explode('|', $news->image)[0]) }}"
                       class="img-fluid"
                       alt="world-news"
                     /></a>
-                    <span class="thumb-title">{{$news1->category->category_name}}</span>
+                    <span class="thumb-title">{{$news->category->category_name}}</span>
                   </div>
                   <h5 class="font-weight-bold mt-3">
-                    {{$news1->name}}
+                    {{$news->name}}
                   </h5>
                   <p class="fs-15 font-weight-normal">
-                    {{$news1->title}}
+                    {{$news->title}}
                   </p>
                   <a href="{{ url('/admin/news/'. $news->id) }}" class="font-weight-bold text-dark pt-2"
                     >Read Article</a
@@ -234,22 +202,22 @@
               </div>
             </div>
             <div class="row">
-              @foreach ($news2 as $news1)
+              @foreach ($news2->take(4) as $news)
 
                 <div class="col-lg-3 col-sm-6 grid-margin mb-5 mb-sm-2">
                   <div class="position-relative image-hover">
-                    <a href="{{ url('/admin/news/'. $news1->id) }}"><img
-                      src="{{ asset(explode('|', $news1->image)[0]) }}"
+                    <a href="{{ url('/admin/news/'. $news->id) }}"><img
+                      src="{{ asset(explode('|', $news->image)[0]) }}"
                       class="img-fluid"
                       alt="world-news"
                     /></a>
-                    <span class="thumb-title">{{$news1->category->category_name}}</span>
+                    <span class="thumb-title">{{$news->category->category_name}}</span>
                   </div>
                   <h5 class="font-weight-bold mt-3">
-                    {{$news1->name}}
+                    {{$news->name}}
                   </h5>
                   <p class="fs-15 font-weight-normal">
-                    {{$news1->title}}
+                    {{$news->title}}
                   </p>
                   <a href="{{ url('/admin/news/'. $news->id) }}" class="font-weight-bold text-dark pt-2"
                     >Read Article</a
@@ -271,22 +239,22 @@
               </div>
             </div>
             <div class="row">
-              @foreach ($news3 as $news1)
+              @foreach ($news3->take(4) as $news)
 
                 <div class="col-lg-3 col-sm-6 grid-margin mb-5 mb-sm-2">
                   <div class="position-relative image-hover">
-                    <a href="{{ url('/admin/news/'. $news1->id) }}"><img
-                      src="{{ asset(explode('|', $news1->image)[0]) }}"
+                    <a href="{{ url('/admin/news/'. $news->id) }}"><img
+                      src="{{ asset(explode('|', $news->image)[0]) }}"
                       class="img-fluid"
                       alt="world-news"
                     /></a>
-                    <span class="thumb-title">{{$news1->category->category_name}}</span>
+                    <span class="thumb-title">{{$news->category->category_name}}</span>
                   </div>
                   <h5 class="font-weight-bold mt-3">
-                    {{$news1->name}}
+                    {{$news->name}}
                   </h5>
                   <p class="fs-15 font-weight-normal">
-                    {{$news1->title}}
+                    {{$news->title}}
                   </p>
                   <a href="{{ url('/admin/news/'. $news->id) }}" class="font-weight-bold text-dark pt-2"
                     >Read Article</a
@@ -308,7 +276,7 @@
               </div>
             </div>
             <div class="row">
-              @foreach ($latestNews as $news)
+              @foreach ($latestNews->take(4) as $news)
 
                 <div class="col-lg-3 col-sm-6 grid-margin mb-5 mb-sm-2">
                   <div class="position-relative image-hover">
@@ -348,11 +316,11 @@
             <div class="row">
               <div class="col-lg-6  mb-5 mb-sm-2">
                 <div class="position-relative image-hover">
-                  <img                    
+                  <a href="{{ url('/admin/news/'. $news->id) }}"><img                    
                     src="{{ asset(explode('|', $news->image)[0]) }}"
                     class="img-fluid"
                     alt="world-news"
-                  />
+                  /></a>
                   <span class="thumb-title">{{$news->category->category_name}}</span>
                 </div>
                 <h1 class="font-weight-600 mt-3">
@@ -364,58 +332,45 @@
               </div>
               <div class="col-lg-6  mb-5 mb-sm-2">
                 <div class="row">
-                  @foreach ($news2 as $news1)
+                  @foreach ($news2->take(2) as $news)
                   <div class="col-sm-6  mb-5 mb-sm-2">
                     <div class="position-relative image-hover">
-                      <img                        
-                        src="{{ asset(explode('|', $news1->image)[0]) }}"
+                      <a href="{{ url('/admin/news/'. $news->id) }}"><img                        
+                        src="{{ asset(explode('|', $news->image)[0]) }}"
                         class="img-fluid"
                         alt="world-news"
-                      />
-                      <span class="thumb-title">{{$news1->category->category_name}}</span>
+                      /></a>>
+                      <span class="thumb-title">{{$news->category->category_name}}</span>
                     </div>
                     <h5 class="font-weight-600 mt-3">
-                      {{$news1->name}}
+                      {{$news->name}}
                     </h5>
                     <p class="fs-15 font-weight-normal">
-                      {{$news1->title}}
+                      {{$news->title}}
                     </p>
                   </div>
                   @endforeach
                 </div>
                 <div class="row mt-3">
+                  @foreach ($news3->take(2) as $news)
                   <div class="col-sm-6  mb-5 mb-sm-2">
                     <div class="position-relative image-hover">
-                      <img                        
-                        src="{{ asset('images/dashboard/star-magazine-7.jpg') }}"
+                      <a href="{{ url('/admin/news/'. $news->id) }}"><img                        
+                        src="{{ asset(explode('|', $news->image)[0]) }}"
                         class="img-fluid"
                         alt="world-news"
-                      />
-                      <span class="thumb-title">POLITICS</span>
+                      /></a>>
+                      <span class="thumb-title">{{$news->category->category_name}}</span>
                     </div>
                     <h5 class="font-weight-600 mt-3">
-                      Japan cancels cherry blossom festivals over virus fears
+                      {{$news->name}}
                     </h5>
                     <p class="fs-15 font-weight-normal">
-                      Lorem Ipsum has been the industry's standard dummy text
+                      {{$news->title}}
                     </p>
                   </div>
-                  <div class="col-sm-6">
-                    <div class="position-relative image-hover">
-                      <img                        
-                        src="{{ asset('images/dashboard/star-magazine-8.jpg') }}"
-                        class="img-fluid"
-                        alt="world-news"
-                      />
-                      <span class="thumb-title">TRAVEL</span>
-                    </div>
-                    <h5 class="font-weight-600 mt-3">
-                      Classic cars reborn as electric vehicles
-                    </h5>
-                    <p class="fs-15 font-weight-normal">
-                      Lorem Ipsum has been the industry's standard dummy text
-                    </p>
-                  </div>
+                  @endforeach
+
                 </div>
               </div>
             </div>
@@ -432,14 +387,14 @@
             <div class="row">
               <div class="col-lg-9">
                 <div class="row">
-                  @foreach ($latestNews as $news)
+                  @foreach ($latestNews->take(3) as $news)
                   <div class="col-sm-4  mb-5 mb-sm-2">
                     <div class="position-relative image-hover">
-                      <img                        
+                      <a href="{{ url('/admin/news/'. $news->id) }}"><img                        
                         src="{{ asset(explode('|', $news->image)[0]) }}"
                         class="img-fluid"
                         alt="world-news"
-                      />
+                      /></a>>
                       <span class="thumb-title">{{$news->category->category_name}}</span>
                     </div>
                     <h5 class="font-weight-600 mt-3">
@@ -448,47 +403,24 @@
                   </div>
                   @endforeach
                 </div>
-                {{-- <div class="row mt-3">
+                <div class="row mt-3">
+                  @foreach ($news2->take(4) as $news)
+
                   <div class="col-sm-4 mb-5 mb-sm-2">
                     <div class="position-relative image-hover">
-                      <img                        
-                        src="{{ asset('images/dashboard/star-magazine-12.jpg') }}"
+                      <a href="{{ url('/admin/news/'. $news->id) }}"><img                        
+                        src="{{ asset(explode('|', $news->image)[0]) }}"
                         class="img-fluid"
                         alt="world-news"
-                      />
-                      <span class="thumb-title">NEWS</span>
+                      /></a>>
+                      <span class="thumb-title">{{$news->category->category_name}}</span>
                     </div>
                     <h5 class="font-weight-600 mt-3">
-                      Japanese chef carves food into incredible pieces of art
-                    </h5>
+                      {{$news->name}}
+                     </h5>
                   </div>
-                  <div class="col-sm-4 mb-5 mb-sm-2">
-                    <div class="position-relative image-hover">
-                      <img                        
-                        src="{{ asset('images/dashboard/star-magazine-13.jpg') }}"
-                        class="img-fluid"
-                        alt="world-news"
-                      />
-                      <span class="thumb-title">NEWS</span>
-                    </div>
-                    <h5 class="font-weight-600 mt-3">
-                      The Misanthrope Society: A Taipei bar for people who
-                    </h5>
-                  </div>
-                  <div class="col-sm-4 mb-5 mb-sm-2">
-                    <div class="position-relative image-hover">
-                      <img                        
-                        src="{{ asset('images/dashboard/star-magazine-14.jpg') }}"
-                        class="img-fluid"
-                        alt="world-news"
-                      />
-                      <span class="thumb-title">TOURISM</span>
-                    </div>
-                    <h5 class="font-weight-600 mt-3">
-                      From Pakistan to the Caribbean: Curry's journey
-                    </h5>
-                  </div>
-                </div> --}}
+                  @endforeach
+                </div>
               </div>
               <div class="col-lg-3">
                 <div class="position-relative mb-3">
@@ -508,57 +440,20 @@
                     </div>
                   </div>
                   <div class="col-sm-12">
+                    @foreach ($latestNews->take(5) as $news)
                     <div class="border-bottom pb-3">
-                      <h5 class="font-weight-600 mt-0 mb-0">
-                        South Korea’s Moon Jae-in sworn in vowing address
-                      </h5>
+                      <a href="{{ url('/admin/news/'. $news->id) }}"><h5 class="font-weight-600 mt-0 mb-0">
+                        {{$news->name}}
+                      </h5></a>
                       <p class="text-color m-0 d-flex align-items-center">
-                        <span class="fs-10 mr-1">2 hours ago</span>
+                        <span class="fs-10 mr-1"> {{$news->created_at}}</span>
                         <i class="mdi mdi-bookmark-outline mr-3"></i>
-                        <span class="fs-10 mr-1">126</span>
                         <i class="mdi mdi-comment-outline"></i>
                       </p>
                     </div>
+                    @endforeach
                   </div>
-                  <div class="col-sm-12">
-                    <div class="border-bottom pt-4 pb-3">
-                      <h5 class="font-weight-600 mt-0 mb-0">
-                        South Korea’s Moon Jae-in sworn in vowing address
-                      </h5>
-                      <p class="text-color m-0 d-flex align-items-center">
-                        <span class="fs-10 mr-1">2 hours ago</span>
-                        <i class="mdi mdi-bookmark-outline mr-3"></i>
-                        <span class="fs-10 mr-1">126</span>
-                        <i class="mdi mdi-comment-outline"></i>
-                      </p>
-                    </div>
-                  </div>
-                  <div class="col-sm-12">
-                    <div class="border-bottom pt-4 pb-3">
-                      <h5 class="font-weight-600 mt-0 mb-0">
-                        South Korea’s Moon Jae-in sworn in vowing address
-                      </h5>
-                      <p class="text-color m-0 d-flex align-items-center">
-                        <span class="fs-10 mr-1">2 hours ago</span>
-                        <i class="mdi mdi-bookmark-outline mr-3"></i>
-                        <span class="fs-10 mr-1">126</span>
-                        <i class="mdi mdi-comment-outline"></i>
-                      </p>
-                    </div>
-                  </div>
-                  <div class="col-sm-12">
-                    <div class="pt-4">
-                      <h5 class="font-weight-600 mt-0 mb-0">
-                        South Korea’s Moon Jae-in sworn in vowing address
-                      </h5>
-                      <p class="text-color m-0 d-flex align-items-center">
-                        <span class="fs-10 mr-1">2 hours ago</span>
-                        <i class="mdi mdi-bookmark-outline mr-3"></i>
-                        <span class="fs-10 mr-1">126</span>
-                        <i class="mdi mdi-comment-outline"></i>
-                      </p>
-                    </div>
-                  </div>
+                  
                 </div>
               </div>
             </div>

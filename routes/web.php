@@ -45,9 +45,12 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/category/{id}/news', '\App\Http\Controllers\CategoryController@CatNews');
 Route::resource('/admin/setting', \App\Http\Controllers\settingController::class);
 
+Route::get('/admin/news/edit/{id}', '\App\Http\Controllers\NewsController@editPost')->name('admin.post.edit');
+Route::post('/admin/news/update/{id}', '\App\Http\Controllers\NewsController@updatestore')->name('admin.update.store');
 
 // Route::get('/catwise', '\App\Http\Controllers\NewsController@catwise');
 
 // Route::resource('/admin/setting', \App\Http\Controllers\settingController::class);
 Route::get('/admin/settings', '\App\Http\Controllers\settingController@settings')->name('admin.settings');
+Route::post('ckeditor/image_upload', '\App\Http\Controllers\NewsController@upload')->name('upload');
 

@@ -51,22 +51,6 @@ class NewsController extends Controller
         $cat_id = $request->category_id;
         $newspaper->category_id = implode(' ', $cat_id);
         
-        // if($request->has('category_id')){
-        //     $files = $request->get('category_id');
-
-        //     $fil = array();
-            
-        //     foreach ($files as $file){
-
-
-        //     $fil[] = $file;
-            
-        //      $newspaper->category_id = implode('|', $fil);
-
-        //     }
-            
-        // }
-        
         if($request->hasFile('images')){
             $files = $request->file('images');
 
@@ -107,9 +91,19 @@ class NewsController extends Controller
      * @param  \App\Models\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function edit(News $news)
+    public function editPost($id)
     {
-        //
+        $categories = Category::orderBy('id', 'desc')->get();
+        
+        $newsId = News::findOrFail($id);
+        $postcat = explode(',', $newsId->category_id);
+        $images = explode('|', $newsId->image);
+
+        // foreach($images as $image){
+        //     $image_path = public_path("{$image}");
+        //     unlink($image_path);
+        // }
+        return view('editNews', compact('newsId','postcat','categories'));
     }
 
     /**
@@ -119,11 +113,7 @@ class NewsController extends Controller
      * @param  \App\Models\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, News $news)
-    {
-        //
-    }
-
+    
     /**
      * Remove the specified resource from storage.
      *
@@ -208,5 +198,38 @@ class NewsController extends Controller
 
     }
 
+
+    public function updatestore(Request $request,$id)
+    {
+        $newspaper = News::findOrFail($id);
+        $newspaper->name= $request->has('name')? $request->get('name'):'';
+        $newspaper->title= $request->has('title')? $request->get('title'):'';
+        $newspaper->news_details= $request->has('news_details')? $request->get('news_details'):'';
+        $newspaper->is_active= 1;
+
+
+        $cat_id = $request->category_id;
+        $newspaper->category_id = implode(' ', $cat_id);
+        
+        if($request->hasFile('images')){
+            $files = $request->file('images');
+
+            $imageLocation= array();
+            $i=0;
+            foreach ($files as $file){
+                $extension = $file->getClientOriginalExtension();
+                $fileName= 'news_'. time() . ++$i . '.' . $extension;
+                $location= '/images/uploads/';
+                $file->move(public_path() . $location, $fileName);
+                $imageLocation[]= $location. $fileName;
+            }
+
+            $newspaper->image= implode('|', $imageLocation);
+            $newspaper->save();
+            return back()->with('success', 'News updated');
+        } else{
+            return back()->with('error', 'News was not Update!');
+        }
+    }
     
 }

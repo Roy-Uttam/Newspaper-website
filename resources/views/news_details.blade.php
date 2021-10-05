@@ -119,7 +119,7 @@
 
             <h1>{{$news->name}}</h1>
             
-            <p>{{$news->news_details}}</p>
+            <p>{!! html_entity_decode($news->news_details) !!}</p>
           </div>
         </div>
 

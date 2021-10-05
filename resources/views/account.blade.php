@@ -98,18 +98,7 @@
                               <i class="mdi mdi-close"></i>
                             </button>
                           </li>
-                          <li class="nav-item active">
-                            <a class="nav-link active" href="{{ url('/')}}">Home</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/account')}}">Admin</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/admin/news') }}">All</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/admin/category') }}">Category</a>
-                          </li>
+                         
                           <li class="nav-item">
                             <a class="nav-link" href="#"><i class="mdi mdi-magnify"></i></a>
                           </li>

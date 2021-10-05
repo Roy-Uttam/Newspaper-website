@@ -29,7 +29,7 @@
                   <li>30°C,London</li>
                 </ul>
                 <div>
-                  <a class="navbar-brand" href="#"><img src="{{ asset('images/logo.svg') }}" alt="" />
+                  <a class="navbar-brand" href="{{ url('/')}}"><img src="{{ asset('images/logo.svg') }}" alt="" />
                   </a>
                 </div>
                 <div class="d-flex">

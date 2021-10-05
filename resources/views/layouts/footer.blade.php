@@ -58,27 +58,32 @@
             <ul class="social-media">
               <li>
                 <a href="#">
-                  <i class="mdi mdi-instagram"></i>
+
+                  <span class="iconify" data-icon="mdi:instagram"></span>
                 </a>
               </li>
               <li>
                 <a href="#">
-                  <i class="mdi mdi-facebook"></i>
+
+                  <span class="iconify" data-icon="mdi:facebook"></span>
                 </a>
               </li>
               <li>
                 <a href="#">
-                  <i class="mdi mdi-youtube"></i>
+
+                  <span class="iconify" data-icon="mdi:youtube"></span>
                 </a>
               </li>
               <li>
                 <a href="#">
-                  <i class="mdi mdi-linkedin"></i>
+
+                  <span class="iconify" data-icon="mdi:linkedin"></span>
                 </a>
               </li>
               <li>
                 <a href="#">
-                  <i class="mdi mdi-twitter"></i>
+
+                  <span class="iconify" data-icon="mdi:twitter"></span>
                 </a>
               </li>
             </ul>
