@@ -6,7 +6,7 @@
         <div class="container">
           <div class="banner-top-thumb-wrap">
             <div class="d-lg-flex justify-content-between align-items-center">
-              @foreach( $latestNews as $news )
+              @foreach( $popular as $news )
               <a href="{{ url('/admin/news/'. $news->id) }}"><div class="d-flex justify-content-between  mb-3 mb-lg-0">
                 <div>
                   <img

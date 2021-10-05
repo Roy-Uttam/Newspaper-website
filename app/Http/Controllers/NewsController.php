@@ -50,7 +50,8 @@ class NewsController extends Controller
 
         $cat_id = $request->category_id;
         $newspaper->category_id = implode(' ', $cat_id);
-        
+
+
         if($request->hasFile('images')){
             $files = $request->file('images');
 
@@ -80,9 +81,11 @@ class NewsController extends Controller
      */
     public function show(News $news)
     {
+
+        $newsId = News::findOrFail($news->id)->increment('views');
         $categories = Category::orderBy('id' , 'desc')->get();
         $images= explode('|', $news->image);
-        return view('news_details', compact('news', 'images','categories'));
+        return view('news_details', compact('news', 'images','categories','newsId'));
     }
 
     /**
@@ -97,12 +100,7 @@ class NewsController extends Controller
         
         $newsId = News::findOrFail($id);
         $postcat = explode(',', $newsId->category_id);
-        $images = explode('|', $newsId->image);
 
-        // foreach($images as $image){
-        //     $image_path = public_path("{$image}");
-        //     unlink($image_path);
-        // }
         return view('editNews', compact('newsId','postcat','categories'));
     }
 
@@ -160,45 +158,6 @@ class NewsController extends Controller
         return view('admin_panel', compact('returnNews','categories'));
     }
 
-    public function allNews(){
-
-        $setting =Setting::all();
-        foreach ($setting as $key => $value) {
-
-                $catId1= $value->category_id1;
-                $catId2= $value->category_id2;
-                $catId3= $value->category_id3;
-            }
-
-            
-        $categories = Category::orderBy('id' , 'desc')->get();
-        
-        // $popular = Setting::with('category','news')->where('category_id1', $catId1)->limit(4)->get();
-        $popular1 = Category::with('news')->where('id', $catId1)->limit(4)->get();
-        foreach ($popular1 as $key => $value) {
-           
-            $news1= $value->news;
-        }
-
-        $popular2 = Category::with('news')->where('id', $catId2)->limit(4)->get();
-        foreach ($popular2 as $key => $value) {
-           
-            $news2= $value->news;
-        }
-
-        $popular3 = Category::with('news')->where('id', $catId3)->limit(4)->get();
-        foreach ($popular3 as $key => $value) {
-           
-            $news3= $value->news;
-        }
-        
-        $latestNews = News::with('category')->orderby('created_at' , 'desc')->limit(4)->get();  
-
-        return view('home' , compact('latestNews', 'categories','news1','news2','news3'));
-
-    }
-
-
     public function updatestore(Request $request,$id)
     {
         $newspaper = News::findOrFail($id);
@@ -231,5 +190,46 @@ class NewsController extends Controller
             return back()->with('error', 'News was not Update!');
         }
     }
+
+
+    public function allNews(){
+
+        $setting =Setting::all();
+        foreach ($setting as $key => $value) {
+
+                $catId1= $value->category_id1;
+                $catId2= $value->category_id2;
+                $catId3= $value->category_id3;
+            }
+
+            
+        $categories = Category::orderBy('id' , 'desc')->get();
+        
+        // $popular = Setting::with('category','news')->where('category_id1', $catId1)->limit(4)->get();
+        $popular1 = Category::with('news')->where('id', $catId1)->limit(4)->get();
+        foreach ($popular1 as $key => $value) {
+           
+            $news1= $value->news;
+        }
+
+        $popular2 = Category::with('news')->where('id', $catId2)->limit(4)->get();
+        foreach ($popular2 as $key => $value) {
+           
+            $news2= $value->news;
+        }
+
+        $popular3 = Category::with('news')->where('id', $catId3)->limit(4)->get();
+        foreach ($popular3 as $key => $value) {
+           
+            $news3= $value->news;
+        }
+        
+        $latestNews = News::with('category')->orderby('created_at' , 'desc')->limit(4)->get(); 
+        $popular = News::with('category')->orderby('views' , 'desc')->limit(4)->get();  
+
+        return view('home' , compact('latestNews', 'categories','news1','news2','news3','popular'));
+
+    }
+
     
 }

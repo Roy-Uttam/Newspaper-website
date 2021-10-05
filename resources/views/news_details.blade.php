@@ -80,6 +80,7 @@
             {{$news->category->category_name}}
           </div>
           <div class="label newstitle mt-2 mb-4">
+            <span class="float-right">Views:{{$news->views}}</span>
             <h1>{{$news->title}}</h1>
           </div>
 
