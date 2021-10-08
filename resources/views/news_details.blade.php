@@ -27,7 +27,7 @@
               <li>{{ date('Y-m-d H:i:s') }}</li>
             </ul>
             <div>
-              <h1>LAL MATIR SAKHIPUR</h1>
+              <h1><a href="{{ url('/')}}">LAL MATIR SAKHIPUR</a> </h1>
             </div>
             <div class="d-flex">
               <ul class="navbar-right">

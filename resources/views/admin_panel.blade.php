@@ -344,7 +344,13 @@
     <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 
     {{-- ckeditor easy image --}}
-    <script>
+    <script type="text/javascript">
+      CKEDITOR.replace('news_details', {
+          filebrowserUploadUrl: "{{route('ckeditor.upload', ['_token' => csrf_token() ])}}",
+          filebrowserUploadMethod: 'form'
+      });
+  </script>
+    {{-- <script>
       CKEDITOR.addCss('figure[class*=easyimage-gradient]::before { content: ""; position: absolute; top: 0; bottom: 0; left: 0; right: 0; }' +
         'figure[class*=easyimage-gradient] figcaption { position: relative; z-index: 2; }' +
         '.easyimage-gradient-1::before { background-image: linear-gradient( 135deg, rgba( 115, 110, 254, 0 ) 0%, rgba( 66, 174, 234, .72 ) 100% ); }' +
@@ -422,7 +428,7 @@
         ],
         removeButtons: 'PasteFromWord'
       });
-    </script>
+    </script> --}}
     <!-- Custom js for this page-->       
 
     <script type="text/javascript" src="/js/app.js"></script>    

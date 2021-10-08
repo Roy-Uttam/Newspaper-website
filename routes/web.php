@@ -52,5 +52,4 @@ Route::post('/admin/news/update/{id}', '\App\Http\Controllers\NewsController@upd
 
 // Route::resource('/admin/setting', \App\Http\Controllers\settingController::class);
 Route::get('/admin/settings', '\App\Http\Controllers\settingController@settings')->name('admin.settings');
-Route::post('ckeditor/image_upload', '\App\Http\Controllers\NewsController@upload')->name('upload');
-
+Route::post('/admin/ckeditor', '\App\Http\Controllers\NewsController@imgupload')->name('ckeditor.upload');
