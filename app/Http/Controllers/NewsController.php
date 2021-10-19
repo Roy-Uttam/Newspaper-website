@@ -20,7 +20,7 @@ class NewsController extends Controller
     {
         $news= News::with('category')->get();
         
-        return view('news', compact('news'));
+        return view('admin.news', compact('news'));
     }
 
     /**
@@ -33,7 +33,7 @@ class NewsController extends Controller
         
     }
 
-    /**
+    /** 
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -101,7 +101,7 @@ class NewsController extends Controller
         $newsId = News::findOrFail($id);
         $postcat = explode(',', $newsId->category_id);
 
-        return view('editNews', compact('newsId','postcat','categories'));
+        return view('admin.editNews', compact('newsId','postcat','categories'));
     }
 
     /**
@@ -155,7 +155,7 @@ class NewsController extends Controller
 
         }
 
-        return view('admin_panel', compact('returnNews','categories'));
+        return view('admin.admin_panel', compact('returnNews','categories'));
     }
 
     public function updatestore(Request $request,$id)

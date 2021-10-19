@@ -301,7 +301,7 @@
                   @endforeach
                 </div>
                 <div class="row mt-3">
-                  @foreach ($news2->take(4) as $news)
+                  @foreach ($news2->take(3) as $news)
 
                   <div class="col-sm-4 mb-5 mb-sm-2">
                     <div class="position-relative image-hover">

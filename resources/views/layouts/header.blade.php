@@ -26,21 +26,12 @@
               <div class="d-flex justify-content-between align-items-center navbar-top">
                 <ul class="navbar-left">
                   <li>{{ date('Y-m-d H:i:s') }}</li>
-                  <li>30°C,London</li>
                 </ul>
                 <div>
                   <a class="navbar-brand" href="{{ url('/')}}"><img src="{{ asset('images/logo.svg') }}" alt="" />
                   </a>
                 </div>
                 <div class="d-flex">
-                  <ul class="navbar-right">
-                    <li>
-                      <a href="#">ENGLISH</a>
-                    </li>
-                    <li>
-                      <a href="#">ESPAÑOL</a>
-                    </li>
-                  </ul>
                   <ul class="social-media">
                     <li>
                       <a href="#">

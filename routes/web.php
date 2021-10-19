@@ -13,16 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/pages', function () {
-    return view('pages');
-});
 
 Route::get('/news_details', function () {
-    return view('news_details');
+    return view('admin.news_details');
 });
 
 Route::get('/account', function () {
-    return view('account');
+    return view('admin.account');
 })->name('accounts');
 
 

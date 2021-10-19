@@ -18,7 +18,7 @@ class SettingController extends Controller
     {
       
         $categories = Category::orderBy('id' , 'desc')->get();
-        return view('setting' ,compact('categories'));
+        return view('admin.setting' ,compact('categories'));
     }
 
     /**
