@@ -173,14 +173,13 @@ class NewsController extends Controller
         if($request->hasFile('images')){
             $files = $request->file('images');
             $images = explode('|', $newspaper->image);
-
             if($images){
                 foreach($images as $image){
                     $image_path = public_path("{$image}");
                     unlink($image_path);
                 }
             }
-
+               
             $imageLocation= array();
             $i=0;
             foreach ($files as $file){
@@ -239,23 +238,27 @@ class NewsController extends Controller
 
     }
 
-    public function imgupload(Request $request)
-    {
-        if($request->hasFile('upload')) {
-            $origin_Name = $request->file('upload')->getClientOriginalName();
-            $File_Name = pathinfo($origin_Name, PATHINFO_FILENAME);
-            $extension_Name = $request->file('upload')->getClientOriginalExtension();
-            $File_Name = $File_Name.'_'.time().'.'.$extension_Name;
-        
-            $request->file('upload')->move(public_path('images'), $File_Name);
-   
-            $CKEditorFuncNum = $request->input('CKEditorFuncNum');
-            $url = asset('images/'.$File_Name); 
-            $msg = 'Image uploaded successfully'; 
-            $response = "";
-               
-            @header('Content-type: text/html; charset=utf-8'); 
-            echo $response;
+
+    public function upload(Request $request) {
+    if($request->hasFile('upload')) {
+        //get filename with extension
+        $filenamewithextension = $request->file('upload')->getClientOriginalName();
+  
+        //get filename without extension
+        $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+  
+        //get file extension
+        $extension = $request->file('upload')->getClientOriginalExtension();
+  
+        //filename to store
+        $filenametostore = $filename.'_'.time().'.'.$extension;
+  
+        //Upload File
+        $request->file('upload')->storeAs('public/uploads', $filenametostore);
+ 
+        echo json_encode([
+            'default' => asset('storage/uploads/'.$filenametostore),
+        ]);
         }
     }
 
