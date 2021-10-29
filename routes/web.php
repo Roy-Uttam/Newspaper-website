@@ -49,4 +49,9 @@ Route::post('/admin/news/update/{id}', '\App\Http\Controllers\NewsController@upd
 
 // Route::resource('/admin/setting', \App\Http\Controllers\settingController::class);
 Route::get('/admin/settings', '\App\Http\Controllers\settingController@settings')->name('admin.settings');
-Route::post('editor/image_upload', '\App\Http\Controllers\NewsController@upload')->name('upload');
+
+
+Route::get('summernoteeditor', '\App\Http\Controllers\SummernotefileController@getSummernoteeditor')->name('summernoteeditor.get');
+ 
+ Route::post('summernoteeditor', '\App\Http\Controllers\SummernotefileController@postSummernoteeditor')->name('summernoteeditor.post');
+ 

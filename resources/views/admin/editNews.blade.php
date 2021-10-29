@@ -32,7 +32,7 @@
                       </div>
                       
                       <div class="mb-3">
-                        <textarea class="form-control" id="news_details" name="news_details">{{$newsId->news_details}}</textarea>
+                      <textarea class="form-control summernote" name="detail">{{$newsId->news_details}}</textarea>
                       </div>
 
                       <div class="mb-3">
@@ -78,88 +78,31 @@
         </div>
 
     <!-- inject:js -->        
-    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+    <script type="text/javascript">
 
-    {{-- ckeditor easy image --}}
-    <script>
-      CKEDITOR.addCss('figure[class*=easyimage-gradient]::before { content: ""; position: absolute; top: 0; bottom: 0; left: 0; right: 0; }' +
-        'figure[class*=easyimage-gradient] figcaption { position: relative; z-index: 2; }' +
-        '.easyimage-gradient-1::before { background-image: linear-gradient( 135deg, rgba( 115, 110, 254, 0 ) 0%, rgba( 66, 174, 234, .72 ) 100% ); }' +
-        '.easyimage-gradient-2::before { background-image: linear-gradient( 135deg, rgba( 115, 110, 254, 0 ) 0%, rgba( 228, 66, 234, .72 ) 100% ); }');
-  
-      CKEDITOR.replace('news_details', {
-        extraPlugins: 'easyimage',
-        removePlugins: 'image',
-        removeDialogTabs: 'link:advanced',
-        toolbar: [{
-            name: 'document',
-            items: ['Undo', 'Redo']
-          },
-          {
-            name: 'styles',
-            items: ['Format']
-          },
-          {
-            name: 'basicstyles',
-            items: ['Bold', 'Italic', 'Strike', '-', 'RemoveFormat']
-          },
-          {
-            name: 'paragraph',
-            items: ['NumberedList', 'BulletedList']
-          },
-          {
-            name: 'links',
-            items: ['Link', 'Unlink']
-          },
-          {
-            name: 'insert',
-            items: ['EasyImageUpload']
-          }
-        ],
-        height: 630,
-        cloudServices_uploadUrl: 'public/images/',
-        
-        cloudServices_tokenUrl: 'https://33333.cke-cs.com/token/dev/ijrDsqFix838Gh3wGO3F77FSW94BwcLXprJ4APSp3XQ26xsUHTi0jcb1hoBt',
-        easyimage_styles: {
-          gradient1: {
-            group: 'easyimage-gradients',
-            attributes: {
-              'class': 'easyimage-gradient-1'
-            },
-            label: 'Blue Gradient',
-            icon: 'https://ckeditor.com/docs/ckeditor4/4.16.2/examples/assets/easyimage/icons/gradient1.png',
-            iconHiDpi: 'https://ckeditor.com/docs/ckeditor4/4.16.2/examples/assets/easyimage/icons/hidpi/gradient1.png'
-          },
-          gradient2: {
-            group: 'easyimage-gradients',
-            attributes: {
-              'class': 'easyimage-gradient-2'
-            },
-            label: 'Pink Gradient',
-            icon: 'https://ckeditor.com/docs/ckeditor4/4.16.2/examples/assets/easyimage/icons/gradient2.png',
-            iconHiDpi: 'https://ckeditor.com/docs/ckeditor4/4.16.2/examples/assets/easyimage/icons/hidpi/gradient2.png'
-          },
-          noGradient: {
-            group: 'easyimage-gradients',
-            attributes: {
-              'class': 'easyimage-no-gradient'
-            },
-            label: 'No Gradient',
-            icon: 'https://ckeditor.com/docs/ckeditor4/4.16.2/examples/assets/easyimage/icons/nogradient.png',
-            iconHiDpi: 'https://ckeditor.com/docs/ckeditor4/4.16.2/examples/assets/easyimage/icons/hidpi/nogradient.png'
-          }
-        },
-        easyimage_toolbar: [
-          'EasyImageFull',
-          'EasyImageSide',
-          'EasyImageGradient1',
-          'EasyImageGradient2',
-          'EasyImageNoGradient',
-          'EasyImageAlt'
-        ],
-        removeButtons: 'PasteFromWord'
-      });
-    </script>
+
+
+         $(document).ready(function() {
+      
+      
+      
+          $('.summernote').summernote({
+      
+      
+      
+                height: 500,
+      
+      
+      
+           });
+      
+      
+      
+        });
+      
+      
+      
+      </script>
     <!-- Custom js for this page-->       
 
     <script type="text/javascript" src="/js/app.js"></script>    

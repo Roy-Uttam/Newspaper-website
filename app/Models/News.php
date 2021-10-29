@@ -16,6 +16,7 @@ class News extends Model
         'title',
         'news_details',
         'category_id',
+        'sid',
         'is_active',
 
     ];
@@ -28,5 +29,11 @@ class News extends Model
     public function setting(){
 
         return $this->belongsTo(Setting::class ,'category_id' , 'id');
+    }
+
+    public function summer(){
+        
+        return $this->hasOne(Summernote::class ,'id' , 'sid');
+        
     }
 }

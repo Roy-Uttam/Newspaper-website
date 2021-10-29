@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Med;
 use App\Models\News;
 use App\Models\Setting;
+use App\Models\Summernote;
 use Carbon\Carbon;
 use Facade\FlareClient\Stacktrace\File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class NewsController extends Controller
 {
@@ -44,9 +47,7 @@ class NewsController extends Controller
         $newspaper = new News();
         $newspaper->name= $request->has('name')? $request->get('name'):'';
         $newspaper->title= $request->has('title')? $request->get('title'):'';
-        $newspaper->news_details= $request->has('news_details')? $request->get('news_details'):'';
         $newspaper->is_active= 1;
-
 
         $cat_id = $request->category_id;
         $newspaper->category_id = implode(' ', $cat_id);
@@ -66,7 +67,45 @@ class NewsController extends Controller
             }
 
             $newspaper->image= implode('|', $imageLocation);
+
+            // SummerEditor
+            
+            $this->validate($request, [
+                'detail' => 'required',
+            ]);
+     
+            $detail=$request->input('detail');
+     
+            $dom = new \DomDocument();
+            $dom->loadHtml($detail, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);    
+            $images = $dom->getElementsByTagName('img');
+     
+            foreach($images as $k => $img){
+
+                $data = $img->getAttribute('src');
+                list($type, $data) = explode(';', $data);
+     
+                list(, $data)      = explode(',', $data);
+     
+                $data = base64_decode($data);
+                $image_name= '/images/summereditor/' . time().$k.'.png';
+     
+                $path = public_path() . $image_name;
+     
+                file_put_contents($path, $data);
+     
+                $img->removeAttribute('src');
+     
+             $img->setAttribute('src', $image_name);
+            }
+            $detail = $dom->saveHTML();
+            $summernote = new Summernote();
+            $summernote->content = $detail;
+            $summernote->save();
+            $newspaper->news_details= $detail;
+            $newspaper->sid= $summernote->id;
             $newspaper->save();
+
             return back()->with('success', 'News Successfully Saved!');
         } else{
             return back()->with('error', 'News was not saved Successfully!');
@@ -82,9 +121,11 @@ class NewsController extends Controller
     public function show(News $news)
     {
 
+        
         $newsId = News::findOrFail($news->id)->increment('views');
         $categories = Category::orderBy('id' , 'desc')->get();
         $images= explode('|', $news->image);
+        $n = News::with('summer')->findOrFail($news->id);
         return view('news_details', compact('news', 'images','categories','newsId'));
     }
 
@@ -120,22 +161,39 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-        $news = News::findOrFail($id);
+
+        
+        $news = News::with('summer')->findOrFail($id);
+        $n =$news->summer->id;
+        $nn = Summernote::findOrFail($n);
         $images = explode('|', $news->image);
 
+        // $detail=$nn->content;
+        // $dom = new \DomDocument();
+        //     $dom->loadHtml($detail, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);    
+        //     $image = $dom->getElementsByTagName('img');
+        //     foreach($image as $k =>$image){
+        //         $image_path = public_path("{$k}");
+        //         unlink($image_path);
+        //     }
+        
+      
+        
         foreach($images as $image){
             $image_path = public_path("{$image}");
             unlink($image_path);
         }
         
         $news->delete();
-        return redirect()->back();
+        $nn->delete();
+        return redirect()->back()->with('success', 'News deleted');
+        
+    
     }
 
     public function addNews(){
 
         $categories =Category::orderBy('id', 'desc')->get();
-        
         $newspapers= News::all();
         $returnNews= array();
 
@@ -163,7 +221,6 @@ class NewsController extends Controller
         $newspaper = News::findOrFail($id);
         $newspaper->name= $request->has('name')? $request->get('name'):'';
         $newspaper->title= $request->has('title')? $request->get('title'):'';
-        $newspaper->news_details= $request->has('news_details')? $request->get('news_details'):'';
         $newspaper->is_active= 1;
 
 
@@ -190,8 +247,62 @@ class NewsController extends Controller
                 $imageLocation[]= $location. $fileName;
             }
 
+
+            
+
             $newspaper->image= implode('|', $imageLocation);
-            $newspaper->save();
+
+            if($request->has('details')){
+                $summernote = new Summernote();
+                $summerid =$summernote->id;
+                if($summerid){
+                    foreach($summerid as $s){
+                        $s->delete();
+                    }
+                }
+                
+
+                // SummerEditor
+            
+            $this->validate($request, [
+                'detail' => 'required',
+            ]);
+     
+            $detail=$request->input('detail');
+            $dom = new \DomDocument();
+            $dom->loadHtml($detail, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);    
+            $images = $dom->getElementsByTagName('img');
+     
+            foreach($images as $k => $img){
+                
+                $data = $img->getAttribute('src');
+                list($type, $data) = explode(';', $data);
+     
+                list(, $data)      = explode(',', $data);
+     
+                $data = base64_decode($data);
+                $image_name= '/images/summereditor/' . time().$k.'.png';
+     
+                $path = public_path() . $image_name;
+     
+                file_put_contents($path, $data);
+     
+                $img->removeAttribute('src');
+     
+             $img->setAttribute('src', $image_name);
+
+            }
+            $detail = $dom->saveHTML();
+            
+            $summernote->content = $detail;
+            $summernote->save();
+            $newspaper->news_details= $detail;
+            $newspaper->sid= $summernote->id;
+            
+        }
+        $newspaper->save();
+            
+
             return back()->with('success', 'News updated');
         } else{
             return back()->with('error', 'News was not Update!');
@@ -239,28 +350,28 @@ class NewsController extends Controller
     }
 
 
-    public function upload(Request $request) {
-    if($request->hasFile('upload')) {
-        //get filename with extension
-        $filenamewithextension = $request->file('upload')->getClientOriginalName();
+    // public function upload(Request $request) {
+    // if($request->hasFile('upload')) {
+    //     //get filename with extension
+    //     $filenamewithextension = $request->file('upload')->getClientOriginalName();
   
-        //get filename without extension
-        $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+    //     //get filename without extension
+    //     $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
   
-        //get file extension
-        $extension = $request->file('upload')->getClientOriginalExtension();
+    //     //get file extension
+    //     $extension = $request->file('upload')->getClientOriginalExtension();
   
-        //filename to store
-        $filenametostore = $filename.'_'.time().'.'.$extension;
+    //     //filename to store
+    //     $filenametostore = $filename.'_'.time().'.'.$extension;
   
-        //Upload File
-        $request->file('upload')->storeAs('public/uploads', $filenametostore);
+    //     //Upload File
+    //     $request->file('upload')->storeAs('public/uploads', $filenametostore);
  
-        echo json_encode([
-            'default' => asset('storage/uploads/'.$filenametostore),
-        ]);
-        }
-    }
+    //     echo json_encode([
+    //         'default' => asset('storage/uploads/'.$filenametostore),
+    //     ]);
+    //     }
+    // }
 
     
 }
