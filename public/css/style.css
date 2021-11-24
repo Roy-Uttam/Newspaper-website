@@ -502,7 +502,7 @@ mark,
 .img-fluid1 {
   
   max-width: 100%;
-  height: 480px;
+  height: 500px;
 }
 
 
@@ -10987,11 +10987,11 @@ form a{
 /* Sidebar Styles */
 
 #sidebar {
-  z-index: 1000;
-  position: absolute;
+  z-index: 100%;
+  position: relative;
   /* left: 250px; */
   width: 250px;
-  height: 100%;
+  height: auto;
   margin-left: -250px;
   overflow-y: auto;
   background: #ffffff;
