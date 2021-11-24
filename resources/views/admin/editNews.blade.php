@@ -56,7 +56,7 @@
                               @foreach ($categories as $category)
                               <div class="form-check">
                                 {{-- <input class="form-check-input" type="checkbox" value="{{$category->id}}" id="flexCheckDefault" name="category_id[]" multiple> --}}
-                               <label for="{{$category->id}}"><input class="form-check-input" type="checkbox" name="category_id[]" value="{{ $category->id }}"
+                               <label for="{{$category->id}}"><input class="form-check-input" type="radio" name="category_id[]" value="{{ $category->id }}"
                                   @if(in_array($category->id,$postcat)) checked @endif>{{$category->category_name}}</label>
                               </div>
                               @endforeach

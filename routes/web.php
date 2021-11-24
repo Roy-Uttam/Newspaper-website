@@ -36,7 +36,6 @@ Route::resource('/admin/category', \App\Http\Controllers\CategoryController::cla
 Route::middleware(['auth'])->group(function () {
     
     Route::get('/admin/admin_news', '\App\Http\Controllers\NewsController@addNews');
-    
 });
 
 Route::get('/category/{id}/news', '\App\Http\Controllers\CategoryController@CatNews');

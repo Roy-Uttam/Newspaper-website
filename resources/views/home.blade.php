@@ -59,12 +59,12 @@
             <div class="row">
               <div class="col-sm-12">
                 <div class="d-flex position-relative  float-left">
-                  <h3 class="section-title">LAL MATIR SAKHIPUR NEWS</h3>
+                  <a class="nav-link" href="{{ url('/category/'. $catId1. '/news') }}"><h3 class="section-title">LAL MATIR SAKHIPUR NEWS</h3></a>
                 </div>
               </div>
             </div>
             <div class="row">
-              @foreach ($news1->take(4) as $news)
+              @foreach ($news_section1->take(4) as $news)
 
                 <div class="col-lg-3 col-sm-6 grid-margin mb-5 mb-sm-2">
                   <div class="position-relative image-hover">
@@ -85,7 +85,7 @@
                     >Read Article</a>
                 </div>
               @endforeach
-        
+              
             </div>
 
           </div>
@@ -94,12 +94,12 @@
             <div class="row">
               <div class="col-sm-12">
                 <div class="d-flex position-relative  float-left">
-                  <h3 class="section-title">World News</h3>
+                  <a href="{{ url('/category/'. $catId2. '/news') }}"><h3 class="section-title" >World News</h3></a>
                 </div>
               </div>
             </div>
             <div class="row">
-              @foreach ($news2->take(4) as $news)
+              @foreach ($news_section2->take(4) as $news)
 
                 <div class="col-lg-3 col-sm-6 grid-margin mb-5 mb-sm-2">
                   <div class="position-relative image-hover">
@@ -131,12 +131,12 @@
             <div class="row">
               <div class="col-sm-12">
                 <div class="d-flex position-relative  float-left">
-                  <h3 class="section-title">World News</h3>
+                  <a href="{{ url('/category/'. $catId3. '/news') }}"><h3 class="section-title" >International News</h3></a>
                 </div>
               </div>
             </div>
             <div class="row">
-              @foreach ($news3->take(4) as $news)
+              @foreach ($news_section3->take(4) as $news)
 
                 <div class="col-lg-3 col-sm-6 grid-margin mb-5 mb-sm-2">
                   <div class="position-relative image-hover">
@@ -168,7 +168,7 @@
             <div class="row">
               <div class="col-sm-12">
                 <div class="d-flex position-relative float-left">
-                  <h3 class="section-title">Latest News</h3>
+                  <a href=""><h3 class="section-title" >Latest News</h3></a>
                 </div>
               </div>
             </div>
@@ -206,7 +206,7 @@
             <div class="row">
               <div class="col-lg-3">
                 <div class="d-flex position-relative float-left">
-                  <h3 class="section-title">Popular News</h3>
+                  <a href=""><h3 class="section-title" >Popular News</h3></a>
                 </div>
               </div>
             </div>
@@ -229,7 +229,7 @@
               </div>
               <div class="col-lg-6  mb-5 mb-sm-2">
                 <div class="row">
-                  @foreach ($news2->take(2) as $news)
+                  @foreach ($news_section2->take(2) as $news)
                   <div class="col-sm-6  mb-5 mb-sm-2">
                     <div class="position-relative image-hover">
                       <a href="{{ url('/admin/news/'. $news->id) }}"><img                        
@@ -249,7 +249,7 @@
                   @endforeach
                 </div>
                 <div class="row mt-3">
-                  @foreach ($news3->take(2) as $news)
+                  @foreach ($news_section3->take(2) as $news)
                   <div class="col-sm-6  mb-5 mb-sm-2">
                     <div class="position-relative image-hover">
                       <a href="{{ url('/admin/news/'. $news->id) }}"><img                        
@@ -301,7 +301,7 @@
                   @endforeach
                 </div>
                 <div class="row mt-3">
-                  @foreach ($news2->take(3) as $news)
+                  @foreach ($news_section2->take(3) as $news)
 
                   <div class="col-sm-4 mb-5 mb-sm-2">
                     <div class="position-relative image-hover">
@@ -357,9 +357,11 @@
     </div>
     <!-- inject:js -->        
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <!-- Custom js for this page-->                    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    <!-- Custom js for this page-->  
+    
     <script type="text/javascript" src="/js/app.js"></script>    
     <!-- End custom js for this page-->
 

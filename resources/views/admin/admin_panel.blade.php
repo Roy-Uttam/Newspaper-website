@@ -60,8 +60,8 @@
                             <div>
                               @foreach ($categories as $category)
                               <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="{{$category->id}}" id="flexCheckDefault" name="category_id[]" multiple>
-                                <label class="form-check-label" for="flexCheckDefault">
+                                <input class="form-check-input" type="radio" value="{{$category->id}}" id="flexRadioDefault" name="category_id[]" multiple>
+                                <label class="form-check-label" for="flexRadioDefault">
                                   {{$category->category_name}}
                                 </label>
                               </div>
@@ -87,15 +87,16 @@
                   <div class="card-body">
                     
                     <img src="{{asset($news['image'])}}" height="200" width="200" alt="">
-                    <h5 class="card-title">{{$news['name']}}</h5>
-                    <p class="card-text">{{$news['title']}}</p>
+                    <h5 class="card-title">{{Str::limit($news['name'], 20)}}</h5>
+                    <p class="card-text">{{Str::limit($news['title'], 20)}}</p>
+                    
                     
                     <tr>
-                      <td><a href="{{ route('admin.post.edit', $news['id']) }}" class="btn btn-primary">edit</a></td>
+                      <td><a href="{{ route('admin.post.edit', $news['id']) }}" class="btn btn-primary btn-block">edit</a></td>
                       <td><form method="POST" action=" {{ route('news.destroy', ['news' => $news['id']]) }} ">
                         @csrf
                         @method('DELETE')
-                        <button onclick="return confirm('Are you sure?')" type="submit" class="btn btn-danger btn-sm"> 
+                        <button onclick="return confirm('Are you sure?')" type="submit" class="btn btn-danger btn-block"> 
                             delete
                         </button>	
                       </form></td>

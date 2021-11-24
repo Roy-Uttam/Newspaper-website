@@ -120,7 +120,7 @@
 
 
                                         <div class="form-btn">
-                                            <span onclick="register()">Register</span>
+                                            {{-- <span onclick="register()">Register</span> --}}
                                             <span onclick="login()">Login</span>
                                             <hr id="Indicator">
                                         </div>
@@ -263,7 +263,7 @@
     <!-- Custom js for this page-->                    
     <script type="text/javascript" src="/js/app.js"></script>    
     <!-- End custom js for this page-->
-    <script>
+    {{-- <script>
         var LoginForm = document.getElementById("LoginForm");
         var RegForm = document.getElementById("RegForm");
         var Indicator = document.getElementById("Indicator");
@@ -279,7 +279,7 @@
             Indicator.style.transform = "translate(100px)";
 
         }
-    </script>
+    </script> --}}
 
 </body>
 </html>

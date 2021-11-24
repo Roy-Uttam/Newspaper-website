@@ -13,11 +13,11 @@
                         </div>
                         <div class="row">
                             @foreach($news as $news)
-                                <div class="col-4" style="padding: 10px;">
-                                    <a href="{{ url('/admin/news/'. $news->id) }}"><img src="{{asset(explode('|', $news->image)[0])}}" height="300" width="300"></a>
-                                    <h4> {{$news->name}}</h4>
+                                <div class="col-3" style="padding: 10px;">
+                                    <a href="{{ url('/admin/news/'. $news->id) }}"><img class="img_res" src="{{asset(explode('|', $news->image)[0])}}"></a>
+                                    <h4> {{Str::limit($news->name, 20)}}</h4>
                                    
-                                    <p>{{$news->title}}</p>
+                                    <p>{{Str::limit($news->title, 20)}}</p>
                                     <p>{{$news->category->category_name}}</p>
                                 </div>
                             @endforeach
@@ -26,7 +26,7 @@
 
                 </div>
 
-                       @include('layouts.footer')
+                    @include('layouts.footer')
 
 
             </div>

@@ -11,9 +11,9 @@
                 <div class="col-md-4">
                   <div class="card">
                     <div class="card-body">
-                      <h5 class="card-title">Popular News section</h5>
+                      <h5 class="card-title">Lal Matir Sakhipur Section</h5>
                         <select class="form-select" name="category_id1" aria-label="Default select example">
-                          <option selected>Open this select menu</option>
+                          <option selected>{{$setting->category_id1}}</option>
                             @foreach ($categories as $category)
                               <option value="{{$category->id}}">{{$category->category_name}}</option>
                             @endforeach
@@ -25,23 +25,24 @@
                 <div class="col-md-4">
                   <div class="card">
                     <div class="card-body">
-                      <h5 class="card-title">Popular News section</h5>
+                      <h5 class="card-title">World News Section</h5>
                         <select class="form-select" name="category_id2" aria-label="Default select example">
-                          <option selected>Open this select menu</option>
+                          <option value="{{$category->id}}" selected>{{$setting->category_id2}}</option>
                             @foreach ($categories as $category)
                               <option value="{{$category->id}}">{{$category->category_name}}</option>
                             @endforeach
                         </select>
                     </div>
                   </div>
+             
                 </div>
 
                 <div class="col-md-4">
                   <div class="card">
                     <div class="card-body">
-                      <h5 class="card-title">Popular News section</h5>
+                      <h5 class="card-title">International News section</h5>
                         <select class="form-select" name="category_id3" aria-label="Default select example">
-                          <option selected>Open this select menu</option>
+                          <option selected>{{$setting->category_id3}}</option>
                             @foreach ($categories as $category)
                               <option value="{{$category->id}}">{{$category->category_name}}</option>
                             @endforeach

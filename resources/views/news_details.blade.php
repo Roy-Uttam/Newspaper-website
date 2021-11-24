@@ -178,6 +178,31 @@
   </div>
   </div>
   <!-- inject:js -->
+  <script type="text/javascript">
+
+
+
+       $(document).ready(function() {
+    
+    
+    
+        $('.summernote').summernote({
+    
+    
+    
+              height: 500,
+    
+    
+    
+         });
+    
+    
+    
+      });
+    
+    
+    
+    </script>
   <!-- Custom js for this page-->
   <script type="text/javascript" src="/js/app.js"></script>
   <!-- End custom js for this page-->

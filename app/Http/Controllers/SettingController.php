@@ -18,7 +18,8 @@ class SettingController extends Controller
     {
       
         $categories = Category::orderBy('id' , 'desc')->get();
-        return view('admin.setting' ,compact('categories'));
+        $setting = Setting::orderBy('id' , 'desc')->first();
+        return view('admin.setting' ,compact('categories','setting'));
     }
 
     /**
@@ -100,6 +101,7 @@ class SettingController extends Controller
         $cid1 = $request->get('category_id1');
         $cid2 = $request->get('category_id2');
         $cid3 = $request->get('category_id3');
+
         $cidup1 = Setting::where('id' , '1')->limit(1)->update(['category_id1' => $cid1]);
         $cidup2 = Setting::where('id' , '1')->limit(1)->update(['category_id2' => $cid2]);
         $cidup3 = Setting::where('id' , '1')->limit(1)->update(['category_id3' => $cid3]);

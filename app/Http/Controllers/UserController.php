@@ -51,16 +51,16 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        User::insert([
+        // User::insert([
 
-            'name' => $request->has('uname')? $request->get('uname'):'',
-            'email' => $request->has('email')? $request->get('email'):'',
-            'mobile' => $request->has('mobile')? $request->get('mobile'):'',
-            'password' => $request->has('pass')? $request->get('pass'):'',
+        //     'name' => $request->has('uname')? $request->get('uname'):'',
+        //     'email' => $request->has('email')? $request->get('email'):'',
+        //     'mobile' => $request->has('mobile')? $request->get('mobile'):'',
+        //     'password' => $request->has('pass')? $request->get('pass'):'',
 
-        ]);
+        // ]);
         
-        return redirect('/account')->with('success' , 'Registration succesfull');
+        // return redirect('/account')->with('success' , 'Registration succesfull');
     }
 
     /**

@@ -108,6 +108,9 @@
                             <a class="nav-link" href="{{ url('/account')}}">Admin</a>
                           </li>
                           <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/registration')}}">Registration</a>
+                          </li>
+                          <li class="nav-item">
                             <a class="nav-link" href="{{ url('/admin/news') }}">All</a>
                           </li>
                           <li class="nav-item">
