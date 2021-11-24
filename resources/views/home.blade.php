@@ -66,7 +66,7 @@
             <div class="row">
               @foreach ($news_section1->take(4) as $news)
 
-                <div class="col-lg-3 col-sm-6 grid-margin mb-5 mb-sm-2">
+                <div class="col-6 col-md-3">
                   <div class="position-relative image-hover">
                     <a href="{{ url('/admin/news/'. $news->id) }}"><img
                       src="{{ asset(explode('|', $news->image)[0]) }}"
@@ -101,7 +101,7 @@
             <div class="row">
               @foreach ($news_section2->take(4) as $news)
 
-                <div class="col-lg-3 col-sm-6 grid-margin mb-5 mb-sm-2">
+                <div class="col-6 col-md-3">
                   <div class="position-relative image-hover">
                     <a href="{{ url('/admin/news/'. $news->id) }}"><img
                       src="{{ asset(explode('|', $news->image)[0]) }}"
@@ -138,7 +138,7 @@
             <div class="row">
               @foreach ($news_section3->take(4) as $news)
 
-                <div class="col-lg-3 col-sm-6 grid-margin mb-5 mb-sm-2">
+                <div class="col-6 col-md-3">
                   <div class="position-relative image-hover">
                     <a href="{{ url('/admin/news/'. $news->id) }}"><img
                       src="{{ asset(explode('|', $news->image)[0]) }}"
@@ -175,7 +175,7 @@
             <div class="row">
               @foreach ($latestNews->take(4) as $news)
 
-                <div class="col-lg-3 col-sm-6 grid-margin mb-5 mb-sm-2">
+                <div class="col-6 col-md-3">
                   <div class="position-relative image-hover">
                     <a href="{{ url('/admin/news/'. $news->id) }}"><img
                       src="{{ asset(explode('|', $news->image)[0]) }}"
@@ -215,7 +215,7 @@
                 <div class="position-relative image-hover">
                   <a href="{{ url('/admin/news/'. $news->id) }}"><img                    
                     src="{{ asset(explode('|', $news->image)[0]) }}"
-                    class="img-fluid"
+                    class="img-fluid1"
                     alt="world-news"
                   /></a>
                   <span class="thumb-title">{{$news->category->category_name}}</span>
@@ -230,13 +230,13 @@
               <div class="col-lg-6  mb-5 mb-sm-2">
                 <div class="row">
                   @foreach ($news_section2->take(2) as $news)
-                  <div class="col-sm-6  mb-5 mb-sm-2">
+                  <div class="col-6 col-sm-6">
                     <div class="position-relative image-hover">
                       <a href="{{ url('/admin/news/'. $news->id) }}"><img                        
                         src="{{ asset(explode('|', $news->image)[0]) }}"
                         class="img-fluid"
                         alt="world-news"
-                      /></a>>
+                      /></a>
                       <span class="thumb-title">{{$news->category->category_name}}</span>
                     </div>
                     <h5 class="font-weight-600 mt-3">
@@ -247,16 +247,17 @@
                     </p>
                   </div>
                   @endforeach
+
                 </div>
-                <div class="row mt-3">
+                <div class="row">
                   @foreach ($news_section3->take(2) as $news)
-                  <div class="col-sm-6  mb-5 mb-sm-2">
+                  <div class="col-6 col-sm-6">
                     <div class="position-relative image-hover">
                       <a href="{{ url('/admin/news/'. $news->id) }}"><img                        
                         src="{{ asset(explode('|', $news->image)[0]) }}"
                         class="img-fluid"
                         alt="world-news"
-                      /></a>>
+                      /></a>
                       <span class="thumb-title">{{$news->category->category_name}}</span>
                     </div>
                     <h5 class="font-weight-600 mt-3">
@@ -272,6 +273,7 @@
               </div>
             </div>
           </div>
+
           <div class="popular-news">
             <div class="row">
               <div class="col-lg-3">
@@ -291,7 +293,7 @@
                         src="{{ asset(explode('|', $news->image)[0]) }}"
                         class="img-fluid"
                         alt="world-news"
-                      /></a>>
+                      /></a>
                       <span class="thumb-title">{{$news->category->category_name}}</span>
                     </div>
                     <h5 class="font-weight-600 mt-3">
@@ -309,7 +311,7 @@
                         src="{{ asset(explode('|', $news->image)[0]) }}"
                         class="img-fluid"
                         alt="world-news"
-                      /></a>>
+                      /></a>
                       <span class="thumb-title">{{$news->category->category_name}}</span>
                     </div>
                     <h5 class="font-weight-600 mt-3">
