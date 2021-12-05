@@ -38,7 +38,7 @@
                         <li>{{ date('Y-m-d H:i:s') }}</li>
                       </ul>
                       <div>
-                        <a class="navbar-brand" href="{{ url('/')}}"><img src="{{ asset('images/logo.svg') }}" alt="" />
+                        <a class="navbar-brand" href="{{ url('/')}}"><img src="{{ asset('images/logo-news.png') }}" height="100" width="300" alt="" />
                         </a>
                       </div>
                       <div class="d-flex">
@@ -76,16 +76,8 @@
                         </ul>
                       </div>
                     </div>
-
                     <div class="navbar-bottom-menu">
-                      <button
-                        class="navbar-toggler"
-                        type="button"
-                        data-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation"
-                      >
+                      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                       </button>
       

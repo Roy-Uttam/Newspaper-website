@@ -13,8 +13,8 @@
                         </div>
                         <div class="row">
                             @foreach($news as $news)
-                                <div class="col-3" style="padding: 10px;">
-                                    <a href="{{ url('/admin/news/'. $news->id) }}"><img class="img_res" src="{{asset(explode('|', $news->image)[0])}}"></a>
+                                <div class="col-6 col-md-3" style="padding: 10px;">
+                                    <a href="{{ url('/admin/news/'. $news->id) }}"><img class="img-fluid" src="{{asset(explode('|', $news->image)[0])}}"></a>
                                     <h4> {{Str::limit($news->name, 20)}}</h4>
                                    
                                     <p>{{Str::limit($news->title, 20)}}</p>

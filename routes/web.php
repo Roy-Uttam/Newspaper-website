@@ -1,6 +1,11 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\SettingController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,31 +28,29 @@ Route::get('/account', function () {
 })->name('accounts');
 
 
-Route::get('/', '\App\Http\Controllers\NewsController@allNews');
+Route::get('/', [NewsController::class, 'allNews']);
 
-Route::resource('/users', \App\Http\Controllers\UserController::class);
+Route::resource('/users', UserController::class);
 
-Route::resource('/admin/news', \App\Http\Controllers\NewsController::class);
+Route::resource('/admin/news', NewsController::class);
 
-Route::resource('/admin/category', \App\Http\Controllers\CategoryController::class);
+
+Route::resource('/admin/category', CategoryController::class);
 
 
 
 Route::middleware(['auth'])->group(function () {
     
-    Route::get('/admin/admin_news', '\App\Http\Controllers\NewsController@addNews');
+    Route::get('/admin/admin_news', [NewsController::class, 'addNews']);
 });
 
-Route::get('/category/{id}/news', '\App\Http\Controllers\CategoryController@CatNews');
-Route::resource('/admin/setting', \App\Http\Controllers\settingController::class);
+Route::get('/category/{id}/news', [CategoryController::class, 'CatNews']);
+Route::resource('/admin/setting', SettingController::class);
 
-Route::get('/admin/news/edit/{id}', '\App\Http\Controllers\NewsController@editPost')->name('admin.post.edit');
-Route::post('/admin/news/update/{id}', '\App\Http\Controllers\NewsController@updatestore')->name('admin.update.store');
+Route::get('/admin/news/edit/{id}', [NewsController::class, 'editPost'])->name('admin.post.edit');
+Route::post('/admin/news/update/{id}', [NewsController::class, 'updatestore'])->name('admin.update.store');
 
-// Route::get('/catwise', '\App\Http\Controllers\NewsController@catwise');
-
-// Route::resource('/admin/setting', \App\Http\Controllers\settingController::class);
-Route::get('/admin/settings', '\App\Http\Controllers\settingController@settings')->name('admin.settings');
+Route::get('/admin/settings', [SettingController::class, 'settings'])->name('admin.settings');
 
 
 Route::get('summernoteeditor', '\App\Http\Controllers\SummernotefileController@getSummernoteeditor')->name('summernoteeditor.get');

@@ -11,7 +11,7 @@
                 <div class="col-md-4">
                   <div class="card">
                     <div class="card-body">
-                      <h5 class="card-title">Lal Matir Sakhipur Section</h5>
+                      <h5 class="card-title">First Section</h5>
                         <select class="form-select" name="category_id1" aria-label="Default select example">
                           <option selected>{{$setting->category_id1}}</option>
                             @foreach ($categories as $category)
@@ -25,7 +25,7 @@
                 <div class="col-md-4">
                   <div class="card">
                     <div class="card-body">
-                      <h5 class="card-title">World News Section</h5>
+                      <h5 class="card-title">Second Section</h5>
                         <select class="form-select" name="category_id2" aria-label="Default select example">
                           <option value="{{$category->id}}" selected>{{$setting->category_id2}}</option>
                             @foreach ($categories as $category)
@@ -40,7 +40,7 @@
                 <div class="col-md-4">
                   <div class="card">
                     <div class="card-body">
-                      <h5 class="card-title">International News section</h5>
+                      <h5 class="card-title">Third Section</h5>
                         <select class="form-select" name="category_id3" aria-label="Default select example">
                           <option selected>{{$setting->category_id3}}</option>
                             @foreach ($categories as $category)

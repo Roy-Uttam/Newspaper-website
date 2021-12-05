@@ -37,7 +37,7 @@
                       </div>
 
                       <div class="mb-3">
-                                   <textarea class="form-control summernote" name="detail"></textarea>
+                      <textarea class="form-control summernote" name="detail"></textarea>
                       </div>
 
                       <div class="mb-3">
@@ -82,13 +82,13 @@
                       
             @foreach ($returnNews as $news)
 
-              <div class="col-sm-3">
+              <div class="col-6 col-md-3">
                 <div class="card">
                   <div class="card-body">
                     
-                    <img src="{{asset($news['image'])}}" height="200" width="200" alt="">
-                    <h5 class="card-title">{{Str::limit($news['name'], 20)}}</h5>
-                    <p class="card-text">{{Str::limit($news['title'], 20)}}</p>
+                    <img class="img-fluid" src="{{asset($news['image'])}}" alt="">
+                    <h5 class="card-title">{{Str::limit($news['name'], 10)}}</h5>
+                    <p class="card-text">{{Str::limit($news['title'], 30)}}</p>
                     
                     
                     <tr>

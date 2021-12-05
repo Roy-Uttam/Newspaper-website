@@ -11,8 +11,8 @@
             </div>
                 <div class="row">
                     @foreach ($cat_value as $news)
-                        <div class="col-4" style="padding: 10px;">
-                            <a href="{{ url('/admin/news/'. $news->id) }}"><img src="{{asset(explode('|', $news->image)[0])}}" height="300" width="300"></a>
+                        <div class="col-6 col-md-3" style="padding: 10px;">
+                            <a href="{{ url('/admin/news/'. $news->id) }}"><img class="img-fluid" src="{{asset(explode('|', $news->image)[0])}}" height="300" width="300"></a>
                             <p>{{$news->name}}</p>
                             <p>{{$news->updated_at}}</p>
                         </div>
@@ -21,13 +21,34 @@
                 </div>
      </div>
 
+     {{-- <div class="col-6 col-md-3">
+        <div class="position-relative image-hover">
+          <a href="{{ url('/admin/news/'. $news->id) }}"><img
+            src="{{ asset(explode('|', $news->image)[0]) }}"
+            class="img-fluid"
+            alt="world-news"
+          /></a>
+          <span class="thumb-title">{{$news->category->category_name}}</span>
+        </div>
+        <h5 class="font-weight-bold mt-3">
+          <a href="{{ url('/admin/news/'. $news->id) }}">
+            {{Str::limit($news->name, 10)}}</a>
+        </h5>
+        <p class="fs-15 font-weight-normal">
+          <a href="{{ url('/admin/news/'. $news->id) }}"> {{Str::limit($news->title, 30)}} </a>
+        </p>
+        
+      </div> --}}
+
 
 
 @include('layouts.footer')
 
 <!-- inject:js -->        
 <!-- Custom js for this page-->                    
-<script type="text/javascript" src="/js/app.js"></script>    
+<script type="text/javascript" src="/js/app.js"></script> 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
 <!-- End custom js for this page-->
 
 </body>

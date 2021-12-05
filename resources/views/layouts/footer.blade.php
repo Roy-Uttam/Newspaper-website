@@ -22,7 +22,7 @@
           
         </ul>
         <div>
-          <a class="navbar-brand" href="{{ url('/')}}"><img src="{{ asset('images/logo.svg') }}" alt="" />
+          <a class="navbar-brand" href="{{ url('/')}}"><img src="{{ asset('images/logo-news.png') }}" height="100" width="300" alt="" />
           </a>
         </div>
         </div>

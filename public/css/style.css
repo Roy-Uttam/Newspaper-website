@@ -496,7 +496,12 @@ mark,
   
   /* max-width: 100%;
   height: auto; */
-  width: 300px;
+  width: 200px;
+  height: 200px;
+}
+.img-fluid2 {
+  
+  max-width: 100%;
   height: 200px;
 }
 .img-fluid1 {
@@ -505,6 +510,27 @@ mark,
   height: 500px;
 }
 
+@media (max-width: 576px) {
+  .img-fluid {
+  
+    width: 200px;
+    height: 150px;
+  }
+  .img-fluid2 {
+  
+    max-width: 100%;
+    height: auto;
+  }
+  .img-fluid1 {
+  
+    max-width: 100%;
+    height: 300px;
+  }
+  .img_res {
+    height: 20%;
+    width: 50%;
+    }
+}
 
 .img_res {
 height: 50%;
@@ -618,6 +644,7 @@ pre code {
   .container, .container-sm {
     max-width: 540px;
   }
+  
 }
 
 @media (min-width: 768px) {
@@ -7988,11 +8015,17 @@ button.bg-dark:focus {
 .mx-auto {
   margin-left: auto !important;
 }
+@media (max-width: 576px) {
+  .m-0 {
+    margin: 100 !important;
+  }
+}
 
 @media (min-width: 576px) {
   .m-sm-0 {
     margin: 0 !important;
   }
+  
   .mt-sm-0,
   .my-sm-0 {
     margin-top: 0 !important;
@@ -10333,10 +10366,10 @@ h6, .h6 {
   .navbar-collapse {
     position: fixed;
     right: -100%;
-    top: 0px;
     height: 100%;
+    top: 20%;
     text-align: center;
-    padding: 20px 10px;
+    padding: 0px 10px;
     transition: all 0.7s ease-in-out;
     z-index: 101;
     width: 290px;
@@ -10384,7 +10417,7 @@ h6, .h6 {
 }
 
 .banner-top-thumb {
-  width: 82px;
+  width: 90px;
   height: 42px;
   margin-right: 10px;
 }
@@ -11023,3 +11056,4 @@ form a{
   backface-visibility: hidden;
   transition: transform 0.6s ease-in-out;
 }
+

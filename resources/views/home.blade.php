@@ -7,7 +7,7 @@
           <div class="banner-top-thumb-wrap">
             <div class="d-lg-flex justify-content-between align-items-center">
               @foreach( $popular as $news )
-              <a href="{{ url('/admin/news/'. $news->id) }}"><div class="d-flex justify-content-between  mb-3 mb-lg-0">
+              <a href="{{ url('/admin/news/'. $news->id) }}"><div class="d-flex mb-3 mb-lg-0">
                 <div>
                   <img
                     src="{{ asset(explode('|', $news->image)[0]) }}"
@@ -16,7 +16,7 @@
                   />
                 </div>
                 <h5 class="m-0 font-weight-bold">
-                  {{$news->name}}
+                  {{Str::limit($news->name, 40)}}</a>
                 </h5>
               </div></a>
               @endforeach
@@ -76,14 +76,14 @@
                     <span class="thumb-title">{{$news->category->category_name}}</span>
                   </div>
                   <h5 class="font-weight-bold mt-3">
-                    {{$news->name}}
+                    <a href="{{ url('/admin/news/'. $news->id) }}">
+                      {{Str::limit($news->name, 10)}}</a>
+                      
                   </h5>
                   <p class="fs-15 font-weight-normal">
-                    {{$news->title}}
+                    <a href="{{ url('/admin/news/'. $news->id) }}">{{Str::limit($news->title, 30)}}</a>
                   </p>
-                  <a href="{{ url('/admin/news/'. $news->id) }}" class="font-weight-bold text-dark pt-2"
-                    >Read Article</a>
-                </div>
+                </div></a>
               @endforeach
               
             </div>
@@ -111,15 +111,13 @@
                     <span class="thumb-title">{{$news->category->category_name}}</span>
                   </div>
                   <h5 class="font-weight-bold mt-3">
-                    {{$news->name}}
+                    <a href="{{ url('/admin/news/'. $news->id) }}">
+                      {{Str::limit($news->name, 10)}}</a>
                   </h5>
                   <p class="fs-15 font-weight-normal">
-                    {{$news->title}}
-                  </p>
-                  <a href="{{ url('/admin/news/'. $news->id) }}" class="font-weight-bold text-dark pt-2"
-                    >Read Article</a
-                  >
-                 
+                    <a href="{{ url('/admin/news/'. $news->id) }}">{{Str::limit($news->title, 30)}}</a>
+                   </p>
+                  
                 </div>
               @endforeach
         
@@ -148,14 +146,13 @@
                     <span class="thumb-title">{{$news->category->category_name}}</span>
                   </div>
                   <h5 class="font-weight-bold mt-3">
-                    {{$news->name}}
+                    <a href="{{ url('/admin/news/'. $news->id) }}">
+                      {{Str::limit($news->name, 10)}}</a>
                   </h5>
                   <p class="fs-15 font-weight-normal">
-                    {{$news->title}}
+                    <a href="{{ url('/admin/news/'. $news->id) }}"> {{Str::limit($news->title, 30)}} </a>
                   </p>
-                  <a href="{{ url('/admin/news/'. $news->id) }}" class="font-weight-bold text-dark pt-2"
-                    >Read Article</a
-                  >
+                  
                  
                 </div>
               @endforeach
@@ -185,14 +182,13 @@
                     <span class="thumb-title">{{$news->category->category_name}}</span>
                   </div>
                   <h5 class="font-weight-bold mt-3">
-                    {{$news->name}}
+                    <a href="{{ url('/admin/news/'. $news->id) }}">
+                      {{Str::limit($news->name, 10)}}</a>
                   </h5>
                   <p class="fs-15 font-weight-normal">
-                    {{$news->title}}
+                    <a href="{{ url('/admin/news/'. $news->id) }}"> {{Str::limit($news->title, 30)}} </a>
                   </p>
-                  <a href="{{ url('/admin/news/'. $news->id) }}" class="font-weight-bold text-dark pt-2"
-                    >Read Article</a
-                  >
+                  
                 </div>
               @endforeach
         
@@ -221,10 +217,11 @@
                   <span class="thumb-title">{{$news->category->category_name}}</span>
                 </div>
                 <h1 class="font-weight-600 mt-3">
-                  {{$news->name}}
+                  <a href="{{ url('/admin/news/'. $news->id) }}">
+                    {{Str::limit($news->name, 10)}}</a>
                 </h1>
                 <p class="fs-15 font-weight-normal">
-                  {{$news->title}}
+                  <a href="{{ url('/admin/news/'. $news->id) }}"> {{Str::limit($news->title, 30)}} </a>
                 </p>
               </div>
               <div class="col-lg-6  mb-5 mb-sm-2">
@@ -240,10 +237,11 @@
                       <span class="thumb-title">{{$news->category->category_name}}</span>
                     </div>
                     <h5 class="font-weight-600 mt-3">
-                      {{$news->name}}
+                      <a href="{{ url('/admin/news/'. $news->id) }}">
+                        {{Str::limit($news->name, 10)}}</a>
                     </h5>
                     <p class="fs-15 font-weight-normal">
-                      {{$news->title}}
+                      <a href="{{ url('/admin/news/'. $news->id) }}"> {{Str::limit($news->title, 30)}} </a>
                     </p>
                   </div>
                   @endforeach
@@ -261,10 +259,11 @@
                       <span class="thumb-title">{{$news->category->category_name}}</span>
                     </div>
                     <h5 class="font-weight-600 mt-3">
-                      {{$news->name}}
+                      <a href="{{ url('/admin/news/'. $news->id) }}">
+                        {{Str::limit($news->name, 10)}}</a>
                     </h5>
                     <p class="fs-15 font-weight-normal">
-                      {{$news->title}}
+                      <a href="{{ url('/admin/news/'. $news->id) }}"> {{Str::limit($news->title, 30)}} </a>
                     </p>
                   </div>
                   @endforeach
@@ -291,13 +290,14 @@
                     <div class="position-relative image-hover">
                       <a href="{{ url('/admin/news/'. $news->id) }}"><img                        
                         src="{{ asset(explode('|', $news->image)[0]) }}"
-                        class="img-fluid"
+                        class="img-fluid2"
                         alt="world-news"
                       /></a>
                       <span class="thumb-title">{{$news->category->category_name}}</span>
                     </div>
                     <h5 class="font-weight-600 mt-3">
-                      {{$news->name}}
+                      <a href="{{ url('/admin/news/'. $news->id) }}">
+                        {{Str::limit($news->name, 40)}}</a>
                     </h5>
                   </div>
                   @endforeach
@@ -309,13 +309,14 @@
                     <div class="position-relative image-hover">
                       <a href="{{ url('/admin/news/'. $news->id) }}"><img                        
                         src="{{ asset(explode('|', $news->image)[0]) }}"
-                        class="img-fluid"
+                        class="img-fluid2"
                         alt="world-news"
                       /></a>
                       <span class="thumb-title">{{$news->category->category_name}}</span>
                     </div>
                     <h5 class="font-weight-600 mt-3">
-                      {{$news->name}}
+                      <a href="{{ url('/admin/news/'. $news->id) }}">
+                        {{Str::limit($news->name, 40)}}</a>
                      </h5>
                   </div>
                   @endforeach
@@ -333,7 +334,9 @@
                     @foreach ($latestNews->take(5) as $news)
                     <div class="border-bottom pb-3">
                       <a href="{{ url('/admin/news/'. $news->id) }}"><h5 class="font-weight-600 mt-0 mb-0">
-                        {{$news->name}}
+                        <a href="{{ url('/admin/news/'. $news->id) }}">
+                          <a href="{{ url('/admin/news/'. $news->id) }}">
+                            {{Str::limit($news->name, 40)}}</a>
                       </h5></a>
                       <p class="text-color m-0 d-flex align-items-center">
                         <span class="fs-10 mr-1"> {{$news->created_at}}</span>

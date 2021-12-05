@@ -169,15 +169,6 @@ class NewsController extends Controller
         $summerid =$news->summer->id;
         $summermedia = Summernote::findOrFail($summerid);
         $images = explode('|', $news->image);
-
-        // $detail=$nn->content;
-        // $dom = new \DomDocument();
-        //     $dom->loadHtml($detail, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);    
-        //     $image = $dom->getElementsByTagName('img');
-        //     foreach($image as $k =>$image){
-        //         $image_path = public_path("{$k}");
-        //         unlink($image_path);
-        //     }
         
       
         
@@ -326,7 +317,6 @@ class NewsController extends Controller
         $categories = Category::orderBy('id' , 'desc')->get();
         
         
-        // $popular = Setting::with('category','news')->where('category_id1', $catId1)->limit(4)->get();
         $popular1 = Category::with('news')->where('id', $catId1)->limit(4)->get();
         foreach ($popular1 as $key => $value) {
            
@@ -353,29 +343,6 @@ class NewsController extends Controller
 
     }
 
-
-    // public function upload(Request $request) {
-    // if($request->hasFile('upload')) {
-    //     //get filename with extension
-    //     $filenamewithextension = $request->file('upload')->getClientOriginalName();
-  
-    //     //get filename without extension
-    //     $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
-  
-    //     //get file extension
-    //     $extension = $request->file('upload')->getClientOriginalExtension();
-  
-    //     //filename to store
-    //     $filenametostore = $filename.'_'.time().'.'.$extension;
-  
-    //     //Upload File
-    //     $request->file('upload')->storeAs('public/uploads', $filenametostore);
- 
-    //     echo json_encode([
-    //         'default' => asset('storage/uploads/'.$filenametostore),
-    //     ]);
-    //     }
-    // }
 
     
 }

@@ -27,7 +27,7 @@
                   <li>{{ date('Y-m-d H:i:s') }}</li>
                 </ul>
                 <div>
-                  <a class="navbar-brand" href="{{ url('/')}}"><img src="{{ asset('images/logo.svg') }}" alt="" />
+                  <a class="navbar-brand" href="{{ url('/')}}"><img src="{{ asset('images/logo-news.png') }}" height="100" width="300" alt="" />
                   </a>
                 </div>
                 <div class="d-flex">
@@ -66,14 +66,7 @@
                 </div>
               </div>
               <div class="navbar-bottom-menu">
-                <button
-                  class="navbar-toggler"
-                  type="button"
-                  data-target="#navbarSupportedContent"
-                  aria-controls="navbarSupportedContent"
-                  aria-expanded="false"
-                  aria-label="Toggle navigation"
-                >
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -97,13 +90,14 @@
                         <a class="nav-link" href="{{ url('/category/'. $category->cat_code. '/news') }}">{{$category->category_name}}</a>
                       </li>
                     @endforeach
-                    <li class="nav-item">
-                      <a class="nav-link" href="{{ url('/account')}}">Admin</a>
-                    </li>
+                    
                     <li class="nav-item">
                       <a class="nav-link" href="#"><i class="mdi mdi-magnify"></i></a>
                     </li>
+                   
                   </ul>
+                  
                 </div>
               </div>
             </nav>
+          
