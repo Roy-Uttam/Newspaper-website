@@ -40,13 +40,7 @@ class SettingController extends Controller
      */
     public function store(Request $request)
     {
-        // $category = new Setting();
-        // $category->category_id= $request->has('category_id')? $request->get('category_id'):'';
         
-        // $category->save();
-       
-
-        // return back();
     }
 
     /**
@@ -96,8 +90,6 @@ class SettingController extends Controller
     public function settings(Request $request)
     {
 
-
-        
         $cid1 = $request->get('category_id1');
         $cid2 = $request->get('category_id2');
         $cid3 = $request->get('category_id3');

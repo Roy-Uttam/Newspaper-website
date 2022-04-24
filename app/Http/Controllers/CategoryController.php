@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\News;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CategoryController extends Controller
 {
@@ -35,15 +36,44 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
-        $category = new Category();
-        $category->category_name= $request->has('category_name')? $request->get('category_name'):'';
-        $category->cat_code= $request->has('cat_code')? $request->get('cat_code'):'';
-        $category->save();
-        session()->flash('success', 'New category added successfully !!');
 
-        return back();
+        // dd($request->all());
+
+        $validator = Validator::make($request->all(), [
+
+            'add_name'   => 'max:100|required',
+            'add_description'       => 'max:2000|required',
+        ]);
+
+        if ($validator->fails()) {
+            $data          = array();
+            $data['error'] = $validator->errors()->all();
+            return response()->json([
+                'success' => false,
+                'data'    => $data,
+            ]);
+        } else {
+
+            $categories = Category::create([
+
+                'category_name' => $request->add_name,
+                'cat_code' => $request->add_description,
+            ]);
+
+            $data = array();
+            $data['message'] = 'Category Added Successfully';
+            $data['category_name'] = $categories->category_name;
+            $data['cat_code']       = $categories->cat_code;
+            $data['id'] = $categories->id;
+
+            return response()->json([
+                'success' => true,
+                'data'    => $data,
+            ]);
+        }
     }
 
     /**
@@ -63,9 +93,22 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        
+        // dd($request->all);
+        $categories = Category::find($request->id);
+
+        if ($categories) {
+            return response()->json([
+                'success' => true,
+                'data'    => $categories,
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'data'    => 'No information found',
+            ]);
+        }
     }
 
     /**
@@ -75,9 +118,38 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        
+        //dd($request->all());
+        $validator = Validator::make($request->all(), [
+            'add_name'   => 'max:100|required',
+            'add_description'       => 'max:2000|required',
+        ]);
+        if ($validator->fails()) {
+            $data          = array();
+            $data['error'] = $validator->errors()->all();
+            return response()->json([
+                'success' => false,
+                'data'    => $data,
+            ]);
+        } else {
+            $categories = Category::find($request->hidden_id);
+
+            $categories['category_name']       = $request->edit_name;
+            $categories['cat_code']       = $request->edit_description;
+            $categories->update();
+
+            $data                = array();
+            $data['message']     = 'Category updated successfully';
+            $data['category_name'] =  $categories->category_name;
+            $data['cat_code']       = substr($categories->cat_code, 0, 50);
+            $data['id']          = $request->hidden_id;
+
+            return response()->json([
+                'success' => true,
+                'data'    => $data,
+            ]);
+        }
     }
 
     /**
@@ -86,13 +158,27 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        if( Category::find($id)->delete() ) {
-        
-    }
-    
-    return redirect()->back();
+        //dd($request->id);
+        $categories = Category::findOrFail($request->id);
+        if ($categories) {
+            $categories->delete();
+            $data            = array();
+            $data['message'] = 'Category deleted successfully';
+            $data['id']      = $request->id;
+            return response()->json([
+                'success' => true,
+                'data'    => $data,
+            ]);
+        } else {
+            $data            = array();
+            $data['message'] = 'Category can not deleted!';
+            return response()->json([
+                'success' => false,
+                'data'    => $data,
+            ]);
+        }
     }
 
 

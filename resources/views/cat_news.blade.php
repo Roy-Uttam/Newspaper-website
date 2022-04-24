@@ -12,7 +12,7 @@
                 <div class="row">
                     @foreach ($cat_value as $news)
                         <div class="col-6 col-md-3" style="padding: 10px;">
-                            <a href="{{ url('/admin/news/'. $news->id) }}"><img class="img-fluid" src="{{asset(explode('|', $news->image)[0])}}" height="300" width="300"></a>
+                            <a href="{{ url('/admin/news/'. $news->id) }}"><img class="img-fluid" src="{{ asset('images/' . $news->image) }}" height="300" width="300"></a>
                             <p>{{$news->name}}</p>
                             <p>{{$news->updated_at}}</p>
                         </div>
@@ -20,25 +20,6 @@
                                 
                 </div>
      </div>
-
-     {{-- <div class="col-6 col-md-3">
-        <div class="position-relative image-hover">
-          <a href="{{ url('/admin/news/'. $news->id) }}"><img
-            src="{{ asset(explode('|', $news->image)[0]) }}"
-            class="img-fluid"
-            alt="world-news"
-          /></a>
-          <span class="thumb-title">{{$news->category->category_name}}</span>
-        </div>
-        <h5 class="font-weight-bold mt-3">
-          <a href="{{ url('/admin/news/'. $news->id) }}">
-            {{Str::limit($news->name, 10)}}</a>
-        </h5>
-        <p class="fs-15 font-weight-normal">
-          <a href="{{ url('/admin/news/'. $news->id) }}"> {{Str::limit($news->title, 30)}} </a>
-        </p>
-        
-      </div> --}}
 
 
 

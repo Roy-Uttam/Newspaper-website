@@ -3,37 +3,37 @@
             <!-- partial -->
           </div>
         </header>
+        
         <div class="container">
           <div class="banner-top-thumb-wrap">
             <div class="d-lg-flex justify-content-between align-items-center">
               @foreach( $popular as $news )
-              <a href="{{ url('/admin/news/'. $news->id) }}"><div class="d-flex mb-3 mb-lg-0">
-                <div>
-                  <img
-                    src="{{ asset(explode('|', $news->image)[0]) }}"
+              <a style="padding: 10px;" href="{{ url('/admin/news/'. $news->id) }}">
+              <div class="d-flex justify-content-between align-items-center">
+                <img
+                    src="{{ asset('images/' . $news->image) }}"
                     alt="thumb"
                     class="banner-top-thumb"
-                  />
-                </div>
-                <h5 class="m-0 font-weight-bold">
-                  {{Str::limit($news->name, 40)}}</a>
-                </h5>
-              </div></a>
+                  />{{Str::limit($news->name, 10)}}
+              </div>
+              </a>
               @endforeach
             </div>
-          </div>
+            </div>
+              
+            </div>
           <div class="row">
             <div class="col-lg-12">
-              <div id="carouselControls" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
+              <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                  <div class="carousel-indicators">
                  @foreach( $latestNews as $news )
-                    <li data-target="#carouselExampleIndicators" data-slide-to="{{ $loop->index }}" class="{{ $loop->first ? 'active' : '' }}"></li>
+                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ $loop->index }}" class="{{ $loop->first ? 'active' : '' }}" aria-current="true" aria-label="Slide 1"></button>
                  @endforeach
-                </ol>
+                  </div>
                 <div class="carousel-inner" role="listbox">
                   @foreach( $latestNews as $news )
                      <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-                         <a href="{{ url('/admin/news/'. $news->id) }}"><img class="d-block w-100" src="{{ asset(explode('|', $news->image)[0]) }}"></a>
+                         <a href="{{ url('/admin/news/'. $news->id) }}"><img class="d-block w-100" src="{{ asset('images/' . $news->image) }}"></a>
                             <div class="carousel-caption d-none d-md-block">
                                <h3>{{$news->name}}</h3>
                                <p>{{$news->title}}</p>
@@ -41,14 +41,15 @@
                      </div>
                   @endforeach
                 </div>
-                <a class="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselControls" role="button" data-slide="next">
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Next</span>
-                </a>
+                  <span class="visually-hidden">Next</span>
+                </button>
+                
               </div>
             </div>
           </div>
@@ -59,7 +60,7 @@
             <div class="row">
               <div class="col-sm-12">
                 <div class="d-flex position-relative  float-left">
-                  <a class="nav-link" href="{{ url('/category/'. $catId1. '/news') }}"><h3 class="section-title">LAL MATIR SAKHIPUR NEWS</h3></a>
+                  <a class="nav-link" href="{{ url('/category/'. $catId1. '/news') }}"><h3 class="section-title">LAL MATIR SAKHIPUR</h3></a>
                 </div>
               </div>
             </div>
@@ -69,7 +70,7 @@
                 <div class="col-6 col-md-3">
                   <div class="position-relative image-hover">
                     <a href="{{ url('/admin/news/'. $news->id) }}"><img
-                      src="{{ asset(explode('|', $news->image)[0]) }}"
+                      src="{{ asset('images/' . $news->image) }}"
                       class="img-fluid"
                       alt="world-news"
                     /></a>
@@ -104,7 +105,7 @@
                 <div class="col-6 col-md-3">
                   <div class="position-relative image-hover">
                     <a href="{{ url('/admin/news/'. $news->id) }}"><img
-                      src="{{ asset(explode('|', $news->image)[0]) }}"
+                      src="{{ asset('images/' . $news->image) }}"
                       class="img-fluid"
                       alt="world-news"
                     /></a>
@@ -139,7 +140,7 @@
                 <div class="col-6 col-md-3">
                   <div class="position-relative image-hover">
                     <a href="{{ url('/admin/news/'. $news->id) }}"><img
-                      src="{{ asset(explode('|', $news->image)[0]) }}"
+                      src="{{ asset('images/' . $news->image) }}"
                       class="img-fluid"
                       alt="world-news"
                     /></a>
@@ -175,7 +176,7 @@
                 <div class="col-6 col-md-3">
                   <div class="position-relative image-hover">
                     <a href="{{ url('/admin/news/'. $news->id) }}"><img
-                      src="{{ asset(explode('|', $news->image)[0]) }}"
+                      src="{{ asset('images/' . $news->image) }}"
                       class="img-fluid"
                       alt="world-news"
                     /></a>
@@ -198,7 +199,7 @@
 
           {{-- World News Area closed --}}
 
-          <div class="editors-news">
+          {{-- <div class="editors-news">
             <div class="row">
               <div class="col-lg-3">
                 <div class="d-flex position-relative float-left">
@@ -210,7 +211,7 @@
               <div class="col-lg-6  mb-5 mb-sm-2">
                 <div class="position-relative image-hover">
                   <a href="{{ url('/admin/news/'. $news->id) }}"><img                    
-                    src="{{ asset(explode('|', $news->image)[0]) }}"
+                    src="{{ asset('images/' . $news->image) }}"
                     class="img-fluid1"
                     alt="world-news"
                   /></a>
@@ -230,7 +231,7 @@
                   <div class="col-6 col-sm-6">
                     <div class="position-relative image-hover">
                       <a href="{{ url('/admin/news/'. $news->id) }}"><img                        
-                        src="{{ asset(explode('|', $news->image)[0]) }}"
+                        src="{{ asset('images/' . $news->image) }}"
                         class="img-fluid"
                         alt="world-news"
                       /></a>
@@ -252,7 +253,7 @@
                   <div class="col-6 col-sm-6">
                     <div class="position-relative image-hover">
                       <a href="{{ url('/admin/news/'. $news->id) }}"><img                        
-                        src="{{ asset(explode('|', $news->image)[0]) }}"
+                        src="{{ asset('images/' . $news->image) }}"
                         class="img-fluid"
                         alt="world-news"
                       /></a>
@@ -271,7 +272,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> --}}
 
           <div class="popular-news">
             <div class="row">
@@ -289,7 +290,7 @@
                   <div class="col-sm-4  mb-5 mb-sm-2">
                     <div class="position-relative image-hover">
                       <a href="{{ url('/admin/news/'. $news->id) }}"><img                        
-                        src="{{ asset(explode('|', $news->image)[0]) }}"
+                        src="{{ asset('images/' . $news->image) }}"
                         class="img-fluid2"
                         alt="world-news"
                       /></a>
@@ -308,7 +309,7 @@
                   <div class="col-sm-4 mb-5 mb-sm-2">
                     <div class="position-relative image-hover">
                       <a href="{{ url('/admin/news/'. $news->id) }}"><img                        
-                        src="{{ asset(explode('|', $news->image)[0]) }}"
+                        src="{{ asset('images/' . $news->image) }}"
                         class="img-fluid2"
                         alt="world-news"
                       /></a>
@@ -361,12 +362,12 @@
       </div>
     </div>
     <!-- inject:js -->        
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    
+     --}}
     <!-- Custom js for this page-->  
-    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script type="text/javascript" src="/js/app.js"></script>    
     <!-- End custom js for this page-->
 

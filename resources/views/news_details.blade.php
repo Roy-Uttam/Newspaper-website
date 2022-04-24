@@ -12,7 +12,7 @@
           </div>
 
           <div class="label newstitle mt-2 mb-4">
-            <img src="{{ asset($images[0])}}" width="100%">
+            <img src="{{ asset('images/' . $news->image) }}" width="100%">
           </div>
 
           <div class="label newsdesk topborder pt-2 mt-5">
